@@ -1,15 +1,22 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-main {
-    display: flex;
+.main_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main_section {
+   display: flex;
    align-items: center;
    flex-direction: column;
 }
 
 canvas {
-    background-color: black;
+  background-color: black;
 }
