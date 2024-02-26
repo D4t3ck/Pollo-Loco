@@ -1,0 +1,26 @@
+$myFont: system-ui, sans-serif;
+
+@mixin centerDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main_container {
+  @include centerDiv();
+  height: 100vh;
+}
+
+.main_section {
+  @include centerDiv();
+}
+
+canvas {
+  background-color: black;
+}
