@@ -11,10 +11,10 @@ function init() {
 }
 
 document.addEventListener("keydown", (e) => {
-  if (e.key === 'ArrowRight') {
+  if (e.key === 'ArrowRight' || e.key === 'd') {
     keyboard.RIGHT = true;
   }
-  if (e.key === 'ArrowLeft') {
+  if (e.key === 'ArrowLeft' || e.key === 'a') {
     keyboard.LEFT = true;
   }
   if (e.key === 'ArrowUp') {
@@ -26,14 +26,13 @@ document.addEventListener("keydown", (e) => {
   if (e.key === ' ') {
     keyboard.SPACE = true;
   }
-  /* console.log(e); */
 });
 
 document.addEventListener("keyup", (e) => {
-  if (e.key === 'ArrowRight') {
+  if (e.key === 'ArrowRight' || e.key === 'd') {
     keyboard.RIGHT = false;
   }
-  if (e.key === 'ArrowLeft') {
+  if (e.key === 'ArrowLeft' || e.key === 'a') {
     keyboard.LEFT = false;
   }
   if (e.key === 'ArrowUp') {
@@ -46,3 +45,4 @@ document.addEventListener("keyup", (e) => {
     keyboard.SPACE = false;
   }
 });
+
