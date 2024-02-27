@@ -11,38 +11,37 @@ function init() {
 }
 
 document.addEventListener("keydown", (e) => {
-  if (e.key === 'ArrowRight' || e.key === 'd') {
+  if (e.key === "ArrowRight" || e.key === "d") {
     keyboard.RIGHT = true;
   }
-  if (e.key === 'ArrowLeft' || e.key === 'a') {
+  if (e.key === "ArrowLeft" || e.key === "a") {
     keyboard.LEFT = true;
   }
-  if (e.key === 'ArrowUp') {
+  if (e.key === "ArrowUp" || e.key === "w") {
     keyboard.UP = true;
   }
-  if (e.key === 'ArrowDown') {
+  if (e.key === "ArrowDown") {
     keyboard.DOWN = true;
   }
-  if (e.key === ' ') {
+  if (e.key === " " || e.key === " ") {
     keyboard.SPACE = true;
   }
 });
 
 document.addEventListener("keyup", (e) => {
-  if (e.key === 'ArrowRight' || e.key === 'd') {
+  if (e.key === "ArrowRight" || e.key === "d") {
     keyboard.RIGHT = false;
   }
-  if (e.key === 'ArrowLeft' || e.key === 'a') {
+  if (e.key === "ArrowLeft" || e.key === "a") {
     keyboard.LEFT = false;
   }
-  if (e.key === 'ArrowUp') {
+  if (e.key === "ArrowUp" || e.key === "w") {
     keyboard.UP = false;
   }
-  if (e.key === 'ArrowDown') {
+  if (e.key === "ArrowDown") {
     keyboard.DOWN = false;
   }
-  if (e.key === ' ') {
+  if (e.key === " " || e.key === " ") {
     keyboard.SPACE = false;
   }
 });
-
