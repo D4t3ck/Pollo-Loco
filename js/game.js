@@ -6,8 +6,8 @@ function init() {
   canvas = document.getElementById("canvas");
   world = new World(canvas, keyboard);
 
-  console.log("My Character is", world.character);
-  console.log("My Enemy is", world.enemies);
+  // console.log("My Character is", world.character);
+  // console.log("My Enemy is", world.enemies);
 }
 
 document.addEventListener("keydown", (e) => {
@@ -20,12 +20,15 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowUp" || e.key === "w") {
     keyboard.UP = true;
   }
-  if (e.key === "ArrowDown") {
-    keyboard.DOWN = true;
+  if (e.key === "KeyF") {
+    keyboard.F = true;
   }
   if (e.key === " " || e.key === " ") {
     keyboard.SPACE = true;
   }
+ /*  console.log(e); */
+  
+  
 });
 
 document.addEventListener("keyup", (e) => {
@@ -38,10 +41,23 @@ document.addEventListener("keyup", (e) => {
   if (e.key === "ArrowUp" || e.key === "w") {
     keyboard.UP = false;
   }
-  if (e.key === "ArrowDown") {
-    keyboard.DOWN = false;
+  if (e.key === "KeyF") {
+    keyboard.F = false;
   }
   if (e.key === " " || e.key === " ") {
     keyboard.SPACE = false;
+  }
+});
+
+document.addEventListener("mousedown", (e) => {
+  if (e.button === 0) { 
+    keyboard.LEFT_CLICK = true;
+  }
+  /* console.log(e); */
+});
+
+document.addEventListener("mouseup", (e) => {
+  if (e.button === 0) {
+    keyboard.LEFT_CLICK = false;
   }
 });

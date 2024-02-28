@@ -1,7 +1,18 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "zabras";
+  src: url("./font/zabars.ttf") format("truetype"); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+h1 {
+  font-size: 6rem;
+  letter-spacing: 0.5rem;
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 .main_container {
@@ -15,6 +26,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "zabras", system-ui, sans-serif;
+  flex-direction: column;
 }
 
 canvas {

@@ -1,4 +1,9 @@
-$myFont: system-ui, sans-serif;
+@font-face {
+  font-family: 'zabras';
+  src: url('./font/zabars.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+} 
+
+$myFont: 'zabras', system-ui, sans-serif;
 
 @mixin centerDiv {
   display: flex;
@@ -12,6 +17,12 @@ $myFont: system-ui, sans-serif;
   box-sizing: border-box;
 }
 
+h1 {
+  font-size: 6rem;
+  letter-spacing: 0.5rem;
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
 .main_container {
   @include centerDiv();
   height: 100vh;
@@ -19,6 +30,8 @@ $myFont: system-ui, sans-serif;
 
 .main_section {
   @include centerDiv();
+  font-family: $myFont;
+  flex-direction: column;
 }
 
 canvas {
