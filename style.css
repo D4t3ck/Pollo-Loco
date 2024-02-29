@@ -58,6 +58,9 @@ canvas {
   flex-direction: column;
   padding: 0.5rem;
   gap: 0.5rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .menu div {
   display: flex;
@@ -72,10 +75,26 @@ canvas {
   background-color: whitesmoke;
   border-radius: 50px;
 }
+.menu div .menu img,
+.menu div .info img,
+.menu div .sound img {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
 .menu div :hover {
   cursor: pointer;
 }
 
+/* .controls_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+} */
 @media only screen and (max-width: 720px) {
   canvas {
     width: 100%;

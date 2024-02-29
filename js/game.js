@@ -20,13 +20,13 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowUp" || e.key === "w") {
     keyboard.UP = true;
   }
-  if (e.key === "KeyF") {
+  if (e.key === "f") {
     keyboard.F = true;
   }
   if (e.key === " " || e.key === " ") {
     keyboard.SPACE = true;
   }
- /*  console.log(e); */
+  /* console.log(e); */
   
   
 });
@@ -41,7 +41,7 @@ document.addEventListener("keyup", (e) => {
   if (e.key === "ArrowUp" || e.key === "w") {
     keyboard.UP = false;
   }
-  if (e.key === "KeyF") {
+  if (e.key === "f") {
     keyboard.F = false;
   }
   if (e.key === " " || e.key === " ") {

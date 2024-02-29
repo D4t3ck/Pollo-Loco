@@ -60,6 +60,7 @@ canvas {
   flex-direction: column;
   padding: 0.5rem;
   gap: 0.5rem;
+  user-select: none;
 
   div {
     @include centerDiv();
@@ -70,8 +71,13 @@ canvas {
     height: 100%;
     border: 3px solid orange;
     background-color: whitesmoke;
-    border-radius: 50px ;
-    
+    border-radius: 50px;
+
+    .menu img,
+    .info img,
+    .sound img {
+      user-select: none;
+    }
 
     :hover {
       cursor: pointer;
@@ -79,6 +85,17 @@ canvas {
   }
 }
 
+///////////////////////////////
+
+/* .controls_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+} */
 
 //////// RESPONSIVE //////////
 

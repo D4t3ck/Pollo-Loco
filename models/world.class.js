@@ -32,7 +32,7 @@ class World {
   }
 
   checkThrowObjects() {
-    if(keyboard.LEFT_CLICK) {
+    if(keyboard.LEFT_CLICK || keyboard.F) {
       let bottle = new ThrowableObject(this.character.x + 100, this.character.y + 100);
       this.throwableObjects.push(bottle);
     }
