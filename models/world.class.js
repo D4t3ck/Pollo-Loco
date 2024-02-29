@@ -9,6 +9,7 @@ class World {
   keyboard;
   camera_x = 0;
   statusBar = new StatusBar();
+  bottle;
   throwableObjects = [];
 
   constructor(canvas, keyboard) {
@@ -32,8 +33,13 @@ class World {
   }
 
   checkThrowObjects() {
-    if(keyboard.LEFT_CLICK || keyboard.F) {
-      let bottle = new ThrowableObject(this.character.x + 100, this.character.y + 100);
+    if (keyboard.LEFT_CLICK || keyboard.F) {
+      
+      let bottle = new ThrowableObject(
+        this.character.x + 100,
+        this.character.y + 120,
+        this.character.otherDirection
+      );
       this.throwableObjects.push(bottle);
     }
   }

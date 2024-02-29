@@ -23,6 +23,9 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "f") {
     keyboard.F = true;
   }
+  if (e.key === "p") {
+    keyboard.P = true;
+  }
   if (e.key === " " || e.key === " ") {
     keyboard.SPACE = true;
   }
@@ -43,6 +46,9 @@ document.addEventListener("keyup", (e) => {
   }
   if (e.key === "f") {
     keyboard.F = false;
+  }
+  if (e.key === "p") {
+    keyboard.P = false;
   }
   if (e.key === " " || e.key === " ") {
     keyboard.SPACE = false;
