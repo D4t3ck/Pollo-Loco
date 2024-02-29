@@ -43,10 +43,12 @@ h1 {
 .wrapper {
   @include centerDiv();
   gap: 8px;
+  margin: 1rem;
 }
 
 canvas {
   background-color: black;
+  display: block;
   border: 2px solid whitesmoke;
   border-radius: 10px;
 }
@@ -74,5 +76,20 @@ canvas {
     :hover {
       cursor: pointer;
     }
+  }
+}
+
+
+//////// RESPONSIVE //////////
+
+@media only screen and (max-width: 720px) {
+  canvas {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  canvas {
+    height: 100vh;
   }
 }
