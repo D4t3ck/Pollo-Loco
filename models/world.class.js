@@ -9,6 +9,9 @@ class World {
   keyboard;
   camera_x = 0;
   statusBar = new StatusBarLife();
+  statusBarBottle = new StatusBarBottle();
+  statusBarCoin = new StatusBarCoin();
+  statusBarEndboss = new StatusBarEndboss();
   bottle;
   throwableObjects = [];
 
@@ -16,32 +19,22 @@ class World {
     this.ctx = canvas.getContext("2d");
     this.canvas = canvas;
     this.keyboard = keyboard;
-    this.draw();
     this.setWorld();
     this.run();
+    this.draw();
   }
 
   setWorld() {
     this.character.world = this;
   }
 
+  //////////////////
+
   run() {
     setInterval(() => {
       this.checkCollisions();
       this.checkThrowObjects();
     }, 200);
-  }
-
-  checkThrowObjects() {
-    if (keyboard.LEFT_CLICK || keyboard.F) {
-      
-      let bottle = new ThrowableObject(
-        this.character.x + 100,
-        this.character.y + 120,
-        this.character.otherDirection
-      );
-      this.throwableObjects.push(bottle);
-    }
   }
 
   checkCollisions() {
@@ -55,6 +48,19 @@ class World {
     });
   }
 
+  checkThrowObjects() {
+    if (keyboard.LEFT_CLICK || keyboard.F) {
+      let bottle = new ThrowableObject(
+        this.character.x + 100,
+        this.character.y + 120,
+        this.character.otherDirection
+      );
+      this.throwableObjects.push(bottle);
+    }
+  }
+
+  //////////////////
+
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
@@ -63,6 +69,9 @@ class World {
 
     this.ctx.translate(-this.camera_x, 0);
     this.addToMap(this.statusBar);
+    this.addToMap(this.statusBarBottle);
+    this.addToMap(this.statusBarCoin);
+    this.addToMap(this.statusBarEndboss);
     this.ctx.translate(this.camera_x, 0);
 
     this.addToMap(this.character);
@@ -83,6 +92,8 @@ class World {
       this.addToMap(o);
     });
   }
+
+  /////////////////////
 
   addToMap(mo) {
     if (mo.otherDirection) {
@@ -108,3 +119,5 @@ class World {
     this.ctx.restore();
   }
 }
+
+/////////////////////

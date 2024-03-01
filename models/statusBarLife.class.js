@@ -1,5 +1,5 @@
 class StatusBarLife extends StatusBar {
-  x = 40;
+  x = 20;
   y = 0;
 
   IMAGES_STATUSBAR = [
