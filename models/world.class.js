@@ -8,7 +8,7 @@ class World {
   ctx;
   keyboard;
   camera_x = 0;
-  statusBar = new StatusBar();
+  statusBar = new StatusBarLife();
   bottle;
   throwableObjects = [];
 

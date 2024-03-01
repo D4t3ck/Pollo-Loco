@@ -1,0 +1,3 @@
+class StatusBarCoin extends StatusBar {
+    
+}
