@@ -3,6 +3,7 @@ class World {
   level = level1;
   enemies = level1.enemies;
   clouds = level1.clouds;
+  bottles = level1.bottles;
   backgroundObjects = level1.backgroundObjects;
   canvas;
   ctx;
@@ -12,7 +13,6 @@ class World {
   statusBarBottle = new StatusBarBottle();
   statusBarCoin = new StatusBarCoin();
   statusBarEndboss = new StatusBarEndboss();
-  bottle;
   throwableObjects = [];
 
   constructor(canvas, keyboard) {
@@ -63,21 +63,21 @@ class World {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     this.ctx.translate(this.camera_x, 0);
+
     this.addObjectsToMap(this.level.backgroundObjects);
+    this.addObjectsToMap(this.level.clouds);
+
+    this.addObjectsToMap(this.level.bottles);
+    this.addObjectsToMap(this.level.enemies);
+    this.addObjectsToMap(this.throwableObjects);
+    this.addToMap(this.character);
 
     this.ctx.translate(-this.camera_x, 0);
+
     this.addToMap(this.statusBar);
     this.addToMap(this.statusBarBottle);
     this.addToMap(this.statusBarCoin);
     this.addToMap(this.statusBarEndboss);
-    this.ctx.translate(this.camera_x, 0);
-
-    this.addToMap(this.character);
-    this.addObjectsToMap(this.level.clouds);
-    this.addObjectsToMap(this.level.enemies);
-    this.addObjectsToMap(this.throwableObjects);
-
-    this.ctx.translate(-this.camera_x, 0);
 
     self = this;
     requestAnimationFrame(function () {
