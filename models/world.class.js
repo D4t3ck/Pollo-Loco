@@ -4,6 +4,7 @@ class World {
   enemies = level1.enemies;
   clouds = level1.clouds;
   bottles = level1.bottles;
+  coins = level1.coins;
   backgroundObjects = level1.backgroundObjects;
   canvas;
   ctx;
@@ -68,6 +69,7 @@ class World {
     this.addObjectsToMap(this.level.clouds);
 
     this.addObjectsToMap(this.level.bottles);
+    this.addObjectsToMap(this.level.coins);
     this.addObjectsToMap(this.level.enemies);
     this.addObjectsToMap(this.throwableObjects);
     this.addToMap(this.character);
@@ -98,7 +100,7 @@ class World {
       this.flipImage(mo);
     }
     mo.draw(this.ctx);
-    mo.drawFrame(this.ctx);
+    mo.drawFrame(this.ctx); // frame for collision debugging
 
     if (mo.otherDirection) {
       this.flipImageBack(mo);
