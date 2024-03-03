@@ -1,15 +1,10 @@
 class World {
-  character = new Character();
   level = level1;
-  enemies = level1.enemies;
-  clouds = level1.clouds;
-  bottles = level1.bottles;
-  coins = level1.coins;
-  backgroundObjects = level1.backgroundObjects;
   canvas;
   ctx;
   keyboard;
   camera_x = 0;
+  character = new Character();
   statusBar = new StatusBarLife();
   statusBarBottle = new StatusBarBottle();
   statusBarCoin = new StatusBarCoin();
@@ -20,9 +15,9 @@ class World {
     this.ctx = canvas.getContext("2d");
     this.canvas = canvas;
     this.keyboard = keyboard;
+    this.draw();
     this.setWorld();
     this.run();
-    this.draw();
   }
 
   setWorld() {
