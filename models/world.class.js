@@ -45,7 +45,7 @@ class World {
   checkThrowObjects() {
     if (keyboard.LEFT_CLICK || keyboard.F) {
       let bottle = new ThrowableObject(
-        this.character.x + 100,
+        this.character.x + 120,
         this.character.y + 120,
         this.character.otherDirection
       );

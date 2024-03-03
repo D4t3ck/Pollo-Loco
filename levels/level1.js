@@ -13,6 +13,16 @@ function initLevel() {
       new Chicken(2700),
       new Chicken(3200),
       new Chicken(3500),
+      new ChickenSmall(600),
+      new ChickenSmall(900),
+      new ChickenSmall(1400),
+      new ChickenSmall(1700),
+      new ChickenSmall(1900),
+      new ChickenSmall(2300),
+      new ChickenSmall(2700),
+      new ChickenSmall(3100),
+      new ChickenSmall(3400),
+      new ChickenSmall(3600),
       new Endboss(),
     ],
     [
@@ -75,6 +85,7 @@ function initLevel() {
         "./img/5_background/layers/1_first_layer/1.png",
         1279 * 2
       ),
+
       new BackgroundObject("./img/5_background/layers/air.png", 1279 * 3),
       new BackgroundObject(
         "./img/5_background/layers/3_third_layer/2.png",
@@ -87,6 +98,20 @@ function initLevel() {
       new BackgroundObject(
         "./img/5_background/layers/1_first_layer/2.png",
         1279 * 3
+      ),
+
+      new BackgroundObject("./img/5_background/layers/air.png", 1279 * 4),
+      new BackgroundObject(
+        "./img/5_background/layers/3_third_layer/2.png",
+        1279 * 4
+      ),
+      new BackgroundObject(
+        "./img/5_background/layers/2_second_layer/2.png",
+        1279 * 4
+      ),
+      new BackgroundObject(
+        "./img/5_background/layers/1_first_layer/2.png",
+        1279 * 4
       ),
     ],
     [

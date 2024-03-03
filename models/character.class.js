@@ -1,15 +1,16 @@
 class Character extends MovableObject {
   y = 250;
+  x = 0;
 
   height = 400;
   width = 300;
   speed = 15;
 
   offset = {
-		top: 100,
+		top: 150,
 		bottom: 15,
-		right: 20,
-		left: 20,
+		right: 45,
+		left: 45,
 	};
 
   IMAGES_WALKING = [
@@ -79,7 +80,7 @@ class Character extends MovableObject {
         this.walking_sound.play();
       }
 
-      if (this.world.keyboard.LEFT && this.x > -100) {
+      if (this.world.keyboard.LEFT && this.x > -1000) {
         this.moveLeft();
         this.otherDirection = true;
         this.walking_sound.play();
