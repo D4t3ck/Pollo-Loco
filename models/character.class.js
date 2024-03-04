@@ -85,7 +85,6 @@ class Character extends MovableObject {
         this.otherDirection = true;
         this.walking_sound.play();
       }
-      /* console.log('this.speedY', this.speedY); */
 
       if (
         (this.world.keyboard.SPACE && !this.isAboveGround()) ||

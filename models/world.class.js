@@ -53,33 +53,41 @@ class World {
     }
   }
 
-  //////////////////
+  //////////////////////////////////////////////////////////////
 
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
     this.ctx.translate(this.camera_x, 0);
-
-    this.addObjectsToMap(this.level.backgroundObjects);
-    this.addObjectsToMap(this.level.clouds);
-
-    this.addObjectsToMap(this.level.bottles);
-    this.addObjectsToMap(this.level.coins);
-    this.addObjectsToMap(this.level.enemies);
-    this.addObjectsToMap(this.throwableObjects);
-    this.addToMap(this.character);
-
+    this.addBackgroundGraphics();
+    this.addMovableObjects();
     this.ctx.translate(-this.camera_x, 0);
-
-    this.addToMap(this.statusBar);
-    this.addToMap(this.statusBarBottle);
-    this.addToMap(this.statusBarCoin);
-    this.addToMap(this.statusBarEndboss);
+    this.addStatusBars();
 
     self = this;
     requestAnimationFrame(function () {
       self.draw();
     });
+  }
+
+  addBackgroundGraphics() {
+    this.addObjectsToMap(this.level.backgroundObjects);
+    this.addObjectsToMap(this.level.clouds);
+  }
+
+  addMovableObjects() {
+    this.addObjectsToMap(this.level.bottles);
+    this.addObjectsToMap(this.level.coins);
+    this.addObjectsToMap(this.level.enemies);
+    this.addObjectsToMap(this.level.endboss);
+    this.addObjectsToMap(this.throwableObjects);
+    this.addToMap(this.character);
+  }
+
+  addStatusBars() {
+    this.addToMap(this.statusBar);
+    this.addToMap(this.statusBarBottle);
+    this.addToMap(this.statusBarCoin);
+    this.addToMap(this.statusBarEndboss);
   }
 
   addObjectsToMap(objects) {
@@ -88,7 +96,7 @@ class World {
     });
   }
 
-  /////////////////////
+  //////////////////////////////////////////////////////////////
 
   addToMap(mo) {
     if (mo.otherDirection) {
