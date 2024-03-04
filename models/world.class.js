@@ -5,7 +5,7 @@ class World {
   keyboard;
   camera_x = 0;
   character = new Character();
-  statusBar = new StatusBarLife();
+  statusBarLife = new StatusBarLife();
   statusBarBottle = new StatusBarBottle();
   statusBarCoin = new StatusBarCoin();
   statusBarEndboss = new StatusBarEndboss();
@@ -17,11 +17,21 @@ class World {
     this.keyboard = keyboard;
     this.draw();
     this.setWorld();
+    this.checkCollisions();
     this.run();
   }
 
   setWorld() {
     this.character.world = this;
+  }
+
+  checkCollisions() {
+    setStopableInterval(() => {
+      this.checkCollisionsEnemy();
+      // this.checkCollisionCoins();
+      // this.checkCollisonsBottles();
+      // this.checkCollisionsEndboss();
+    }, 1000 / 30);
   }
 
   //////////////////
@@ -37,7 +47,7 @@ class World {
     this.level.enemies.forEach((enemy) => {
       if (this.character.isColliding(enemy)) {
         this.character.hit();
-        this.statusBar.setPercentage(this.character.energy);
+        this.statusBarLife.setPercentage(this.character.energy);
       }
     });
   }
@@ -52,6 +62,41 @@ class World {
       this.throwableObjects.push(bottle);
     }
   }
+
+  checkCollisionsEnemy() {
+    this.level.enemies.forEach((enemy) => {
+      if (this.character.isColliding(enemy) && !this.character.isHurt()) {
+        if (this.character.isAboveGround()) {
+          this.killChickenWithJump(enemy);
+        } else {
+          this.character.hit();
+          this.statusBarLife.setPercentage(this.character.energy);
+        }
+      }
+    });
+    
+    
+  }
+
+  killChicken(enemy) {
+    //this.chickenDeadSound.currentTime = 0;
+    enemy.chickenKilled();
+    this.character.jump();
+    //this.chickenDeadSound.play();
+    // clearInterval(enemy.animateChickenInterval);
+    // clearInterval(enemy.moveChickenInterval);
+    enemy.loadImage(enemy.IMAGE_DEAD);
+    setTimeout(() => {
+      this.eraseEnemyFromArray(enemy);
+    }, 550);
+  }
+
+  eraseEnemyFromArray(enemy) {
+    let i = this.level.enemies.indexOf(enemy);
+    this.level.enemies.splice(i, 1);
+  }
+
+  //////////////////////////////////////////////////////////////
 
   //////////////////////////////////////////////////////////////
 
@@ -84,7 +129,7 @@ class World {
   }
 
   addStatusBars() {
-    this.addToMap(this.statusBar);
+    this.addToMap(this.statusBarLife);
     this.addToMap(this.statusBarBottle);
     this.addToMap(this.statusBarCoin);
     this.addToMap(this.statusBarEndboss);
@@ -97,6 +142,8 @@ class World {
   }
 
   //////////////////////////////////////////////////////////////
+
+  
 
   addToMap(mo) {
     if (mo.otherDirection) {
