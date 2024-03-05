@@ -48,11 +48,10 @@ class World {
       if (this.character.isColliding(enemy) && !this.character.isHurt()) {
         if (this.character.isAboveGround()) {
           this.killChicken(enemy);
-          
         } else {
-        this.character.hit();
-        this.statusBarLife.setPercentage(this.character.energy);
-      }
+          this.character.hit();
+          this.statusBarLife.setPercentage(this.character.energy);
+        }
       }
     });
   }
@@ -68,24 +67,22 @@ class World {
     }
   }
 
-  checkCollisionsEnemy() {
-    this.level.enemies.forEach((enemy) => {
-      if (this.character.isColliding(enemy) && !this.character.isHurt()) {
-        if (this.character.isAboveGround()) {
-          this.killChicken(enemy);
-        } else {
-          this.character.hit();
-          this.statusBarLife.setPercentage(this.character.energy);
-        }
-      }
-    });
-    
-    
-  }
+  // checkCollisionsEnemy() {
+  //   this.level.enemies.forEach((enemy) => {
+  //     if (this.character.isColliding(enemy) && !this.character.isHurt()) {
+  //       if (this.character.isAboveGround()) {
+  //         this.killChicken(enemy);
+  //       } else {
+  //         this.character.hit();
+  //         this.statusBarLife.setPercentage(this.character.energy);
+  //       }
+  //     }
+  //   });
+  // }
 
   killChicken(enemy) {
     //this.chickenDeadSound.currentTime = 0;
-    enemy.chickenKilled();
+    enemy.isDead();
     this.character.jump();
     //this.chickenDeadSound.play();
     clearInterval(enemy.animateChickenInterval);
@@ -147,8 +144,6 @@ class World {
   }
 
   //////////////////////////////////////////////////////////////
-
-  
 
   addToMap(mo) {
     if (mo.otherDirection) {

@@ -5,13 +5,14 @@ class MovableObject extends DrawableObject {
   acceleration = 2.5;
   energy = 100;
   lastHit = 0;
+  ground = 260;
 
   applyGravity() {
-    setStoppableInterval(() => {
+    setInterval(() => {
       if (this.isAboveGround() || this.speedY > 0) {
         this.y -= this.speedY;
         this.speedY -= this.acceleration;
-      }
+      } 
     }, 1000 / 25);
   }
 
@@ -19,7 +20,7 @@ class MovableObject extends DrawableObject {
     if (this instanceof ThrowableObject) { // throwable objects should always fall
       return true;
     } else {
-      return this.y < 250;
+      return this.y < this.ground;
     }
   }
 
@@ -51,10 +52,6 @@ class MovableObject extends DrawableObject {
   isDead() {
     return this.energy == 0;
   }
-
-  chickenKilled() {
-		return (this.energy == 0);
-	}
 
   playAnimation(images) {
     let i = this.currentImage % images.length; // let i = 0 % 6; // 0, Rest 0

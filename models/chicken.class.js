@@ -1,5 +1,5 @@
 class Chicken extends MovableObject {
-  y = 540;
+  y = 530;
   height = 100;
   width = 100;
   moveChickenInterval;

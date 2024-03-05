@@ -1,10 +1,10 @@
 class Character extends MovableObject {
-  y = 200;
   x = 0;
+  y = 250;
 
   height = 400;
   width = 300;
-  speed = 15;
+  speed = 10;
   characterLastMovement = 0;
   isWalking = false;
   isSnoring = false;
@@ -13,7 +13,7 @@ class Character extends MovableObject {
 
   offset = {
     top: 150,
-    bottom: 10,
+    bottom: 20,
     right: 30,
     left: 30,
   };
@@ -121,14 +121,14 @@ class Character extends MovableObject {
 
   initCharacter() {
     if (this.isDead()) {
-      this.death();
+      this.deathAnimation();
     } else if (this.isHurt()) {
-      this.hurt();
+      this.hurtAnimation();
     } else if (this.isAboveGround()) {
-      this.jumping();
+      this.jumpAnimation();
     } else if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-      this.moving();
-    } else if (this.characterMoveTimepassed() > 4) {
+      this.moveAnimation();
+    } else if (this.lastMoveTimepassed() > 4) {
       this.sleepAnimation();
     } else {
       this.idleAnimation();
@@ -194,7 +194,7 @@ class Character extends MovableObject {
     this.world.camera_x = -this.x + 200;
   }
 
-  death() {
+  deathAnimation() {
     // addgameLost
     this.playAnimation(this.IMAGES_DEAD);
     this.walking_sound.pause();
@@ -202,7 +202,7 @@ class Character extends MovableObject {
     this.stopSnoring();
   }
 
-  hurt() {
+  hurtAnimation() {
     this.playAnimation(this.IMAGES_HURT);
     //addsound
     this.stopSnoring();
@@ -215,12 +215,12 @@ class Character extends MovableObject {
     }
   }
 
-  jumping() {
+  jumpAnimation() {
     this.playAnimation(this.IMAGES_JUMPING);
     this.setTimeStamp();
   }
 
-  moving() {
+  moveAnimation() {
     this.playAnimation(this.IMAGES_WALKING);
     this.setTimeStamp();
   }
@@ -234,7 +234,7 @@ class Character extends MovableObject {
     this.playAnimation(this.IMAGES_IDLE);
   }
 
-  characterMoveTimepassed() {
+  lastMoveTimepassed() {
     let timepassed = new Date().getTime() - this.characterLastMovement;
     timepassed = timepassed / 500;
     return timepassed;
