@@ -34,7 +34,7 @@ class MovableObject extends DrawableObject {
   }
 
   hit() {
-    this.energy -= 5; //10?
+    this.energy -= 10;
     if (this.energy < 0) {
       this.energy = 0;
     } else {
@@ -51,6 +51,10 @@ class MovableObject extends DrawableObject {
   isDead() {
     return this.energy == 0;
   }
+
+  chickenKilled() {
+		return (this.energy == 0);
+	}
 
   playAnimation(images) {
     let i = this.currentImage % images.length; // let i = 0 % 6; // 0, Rest 0

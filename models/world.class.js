@@ -17,7 +17,7 @@ class World {
     this.keyboard = keyboard;
     this.draw();
     this.setWorld();
-    this.checkCollisions();
+    /* this.checkCollisions(); */
     this.run();
   }
 
@@ -45,9 +45,14 @@ class World {
 
   checkCollisions() {
     this.level.enemies.forEach((enemy) => {
-      if (this.character.isColliding(enemy)) {
+      if (this.character.isColliding(enemy) && !this.character.isHurt()) {
+        if (this.character.isAboveGround()) {
+          this.killChicken(enemy);
+          
+        } else {
         this.character.hit();
         this.statusBarLife.setPercentage(this.character.energy);
+      }
       }
     });
   }
@@ -67,7 +72,7 @@ class World {
     this.level.enemies.forEach((enemy) => {
       if (this.character.isColliding(enemy) && !this.character.isHurt()) {
         if (this.character.isAboveGround()) {
-          this.killChickenWithJump(enemy);
+          this.killChicken(enemy);
         } else {
           this.character.hit();
           this.statusBarLife.setPercentage(this.character.energy);
@@ -83,8 +88,8 @@ class World {
     enemy.chickenKilled();
     this.character.jump();
     //this.chickenDeadSound.play();
-    // clearInterval(enemy.animateChickenInterval);
-    // clearInterval(enemy.moveChickenInterval);
+    clearInterval(enemy.animateChickenInterval);
+    clearInterval(enemy.moveChickenInterval);
     enemy.loadImage(enemy.IMAGE_DEAD);
     setTimeout(() => {
       this.eraseEnemyFromArray(enemy);

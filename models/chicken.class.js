@@ -6,10 +6,10 @@ class Chicken extends MovableObject {
   animateChickenInterval;
 
   offset = {
-    top: 10,
-    bottom: 10,
-    right: 10,
-    left: 10,
+    top: 5,
+    bottom: 5,
+    right: 5,
+    left: 5,
   };
 
   IMAGES_WALKING = [
