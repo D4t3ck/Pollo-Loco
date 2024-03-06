@@ -20,6 +20,7 @@ class World {
     this.setWorld();
     this.checkCollisions();
     this.throwInterval();
+    this.checkCollisionsWithThrowingBottle();
   }
 
   setWorld() {
@@ -50,10 +51,12 @@ class World {
     });
   }
 
-  killChicken(enemy) {
+  killChicken(enemy, performJump = true) {
     //this.chickenDeadSound.currentTime = 0;
     enemy.isDead();
-    this.character.jump();
+    if (performJump) {
+      this.character.jump();
+    }
     //this.chickenDeadSound.play();
     clearInterval(enemy.animateChickenInterval);
     clearInterval(enemy.moveChickenInterval);
@@ -69,8 +72,6 @@ class World {
   }
 
   //////////////////////////////////
-
-  
 
   //////////////////////////////////
 
@@ -121,12 +122,6 @@ class World {
     }, 200);
   }
 
-  // checkCollisionsWithThrowingBottle() {
-  //   setStoppableInterval(() => {
-  //     this.checkCollisionBottleWithEndboss();
-  //   }, 200);
-  // }
-
   checkThrowObjects() {
     if (this.canBottleBeThrown()) {
       let bottle = new ThrowableObject(
@@ -140,6 +135,44 @@ class World {
       this.statusBarBottle.setPercentage(this.character.progressBottleBar);
       // this.AUDIO.throw_sound.play();
     }
+  }
+
+  checkCollisionsWithThrowingBottle() {
+    setStoppableInterval(() => {
+      this.killChickenWithBottle();
+      this.hurtEndboss();
+    }, 200);
+  }
+
+  hurtEndboss() {
+    this.throwableObject.forEach((bottle) => {
+      this.level.endboss.forEach((endboss) => {
+        if (bottle.isColliding(endboss)) {
+          endboss.hit(endboss.energy);
+          this.statusBarEndboss.setPercentage(endboss.energy);
+          // this.AUDIO.chicken_dead_sound.currentTime = 0;
+          // this.AUDIO.bottle_smash.currentTime = 0;
+          // this.AUDIO.bottle_smash.play();
+          // this.AUDIO.chicken_dead_sound.play();
+          setTimeout(() => {
+            this.eraseThrowingBottleFromArray(bottle);
+          }, 180);
+        }
+      });
+    });
+  }
+
+  killChickenWithBottle() {
+    this.throwableObject.forEach((bottle) => {
+      this.level.enemies.forEach((enemy) => {
+        if (bottle.isColliding(enemy)) {
+          this.killChicken(enemy, false);
+          setTimeout(() => {
+            this.eraseThrowingBottleFromArray(bottle);
+          }, 180);
+        }
+      });
+    });
   }
 
   canBottleBeThrown() {
