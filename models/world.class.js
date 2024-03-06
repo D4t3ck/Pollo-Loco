@@ -32,7 +32,7 @@ class World {
       this.checkCollisionsEnemy();
       this.checkCollisonsBottles();
       this.checkCollisionCoins();
-      // this.checkCollisionsEndboss();
+      this.checkCollisionsEndboss();
     }, 1000 / 30);
   }
 
@@ -110,6 +110,24 @@ class World {
   coinCollected(coin) {
     let i = this.level.coins.indexOf(coin);
     this.level.coins.splice(i, 1);
+  }
+
+  //////////////////////////////////
+
+  checkCollisionsEndboss() {
+    this.level.endboss.forEach((endboss) => {
+      if (
+        this.character.isColliding(endboss) &&
+        !this.character.isHurt() &&
+        !endboss.isDead()
+      ) {
+        if (this.character.isAboveGround()) {
+        } else {
+          this.character.hit();
+          this.statusBarLife.setPercentage(this.character.energy);
+        }
+      }
+    });
   }
 
   //////////////////////////////////////////////////////////////
@@ -249,7 +267,7 @@ class World {
       this.flipImage(mo);
     }
     mo.draw(this.ctx);
-    mo.drawFrame(this.ctx); // frame for collision debugging
+    // mo.drawFrame(this.ctx); // frame for collision debugging
 
     if (mo.otherDirection) {
       this.flipImageBack(mo);
