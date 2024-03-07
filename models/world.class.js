@@ -12,6 +12,25 @@ class World {
   throwableObject = [];
   collectedBottles = 0;
 
+  AUDIO =  {
+    background_music: new Audio("./audio/backgroundMusicInGame.mp3"),
+
+    walking_sound: new Audio("./audio/walking.mp3"),
+    // jumping_sound: new Audio("./"),
+    // snoring_sound: new Audio("./"),
+    // hurt_sound: new Audio("./"),
+    // dead_sound: new Audio("./"),
+
+    // bottle_collect: new Audio("./"),
+    // bottle_smash: new Audio("./"),
+    // throw_sound: new Audio("./"),
+    // chicken_dead: new Audio("./"),
+    // endboss_fight: new Audio("./"),
+    // coin_collect: new Audio("./"),
+    // game_over: new Audio("./"),
+    // game_win: new Audio("./"),
+  };
+
   constructor(canvas, keyboard) {
     this.ctx = canvas.getContext("2d");
     this.canvas = canvas;

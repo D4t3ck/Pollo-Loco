@@ -91,7 +91,7 @@ class Character extends MovableObject {
 
   world;
 
-  walking_sound = new Audio("audio/walking.mp3");
+  /* walking_sound = new Audio("./audio/walking.mp3"); */
 
   constructor() {
     super().loadImage(this.IMAGES_WALKING[0]);
@@ -151,7 +151,7 @@ class Character extends MovableObject {
     super.moveRight();
     this.otherDirection = false;
     this.stopSnoring();
-    this.walking_sound.play();
+    world.AUDIO.walking_sound.play();
   }
 
   canMoveLeft() {
@@ -169,11 +169,11 @@ class Character extends MovableObject {
     super.moveLeft();
     this.otherDirection = true;
     this.stopSnoring();
-    this.walking_sound.play();
+    world.AUDIO.walking_sound.play();
   }
 
   stopWalkingSound() {
-    this.walking_sound.pause();
+    world.AUDIO.walking_sound.pause();
     this.isWalking = false;
   }
 
