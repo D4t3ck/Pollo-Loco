@@ -1,3 +1,11 @@
+function redirect() {
+  window.location.href = "./game.html";
+}
+
+
+
+
+
 function fullscreen() {
     let fullscreen = document.getElementById('canvas');
     enterFullscreen(fullscreen)

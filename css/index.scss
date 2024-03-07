@@ -1,42 +1,147 @@
 @font-face {
-    font-family: "zabras";
-    src: url("../font/zabars.ttf") format("truetype");
-  }
-  
-  $mainFont: "zabras", system-ui, sans-serif;
-  $sideFont: system-ui, sans-serif;
-  
-  @mixin centerDiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  font-family: "zabras";
+  src: url("../font/zabars.ttf") format("truetype");
+}
+
+$mainFont: "zabras", system-ui, sans-serif;
+$sideFont: system-ui, sans-serif;
+
+@mixin centerDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    background-image: url("../img/5_background/desert2.jpg");
-    background-size: cover;
-    background-position: center;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-image: url("../img/5_background/desert2.jpg");
+  background-size: cover;
+  background-position: center;
+}
 
-  main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+main {
+  @include centerDiv();
+  flex-direction: column;
 
-    h1 {
-        font-size: clamp(2rem, 10vw, 40rem);
-        letter-spacing: 0.5rem;
-        text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
-        user-select: none;
-        font-family: $mainFont;
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: #000;
-        -webkit-text-fill-color: rgba(250, 165, 0, 1);
-      }
+  h1 {
+    font-size: clamp(2rem, 20vw, 20rem);
+    letter-spacing: 0.5rem;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+    margin-block: 0;
+    user-select: none;
+    font-family: $mainFont;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #000;
+    -webkit-text-fill-color: rgba(250, 165, 0, 1);
   }
+}
+
+button {
+  padding: 0.8em 0em;
+  width: 350px;
+  background: #95d8f5;
+  border-radius: 15px;
+  border: 0;
+  color: #fff;
+  font-size: 2rem;
+  font-family: $sideFont;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;
+  -webkit-text-fill-color: rgba(250, 165, 0, 1);
+  letter-spacing: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 1em 2em;
+  text-transform: uppercase;
+  box-shadow: none;
+  box-shadow: -1px 5px 5px 0px #000;
+}
+.light {
+  background: -moz-linear-gradient(
+    -45deg,
+    #6dd0fa 0%,
+    #6dd0fa 40%,
+    #ffffff 50%,
+    #6dd0fa 60%,
+    #6dd0fa 100%
+  );
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right bottom,
+    color-stop(0%, #6dd0fa),
+    color-stop(40%, #6dd0fa),
+    color-stop(50%, #ffffff),
+    color-stop(60%, #6dd0fa),
+    color-stop(100%, #6dd0fa)
+  );
+  background: -webkit-linear-gradient(
+    -45deg,
+    #6dd0fa 0%,
+    #6dd0fa 40%,
+    #ffffff 50%,
+    #6dd0fa 60%,
+    #6dd0fa 100%
+  );
+  background: -o-linear-gradient(
+    -45deg,
+    #6dd0fa 0%,
+    #6dd0fa 40%,
+    #ffffff 50%,
+    #6dd0fa 60%,
+    #6dd0fa 100%
+  );
+  background: -ms-linear-gradient(
+    -45deg,
+    #6dd0fa 0%,
+    #6dd0fa 40%,
+    #ffffff 50%,
+    #6dd0fa 60%,
+    #6dd0fa 100%
+  );
+  background: linear-gradient(
+    135deg,
+    #6dd0fa 0%,
+    #6dd0fa 40%,
+    #ffffff 50%,
+    #6dd0fa 60%,
+    #6dd0fa 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6dd0fa', endColorstr='#6dd0fa',GradientType=1 );
+  background-repeat: no-repeat;
+  background-position: 0px;
+  background-size: 300%;
+}
+
+.light:hover {
+  animation: light 1s;
+  -webkit-animation: light 1s;
+}
+
+@keyframes light {
+  0% {
+    background-position: -600px;
+  }
+  100% {
+    background-position: 0px;
+  }
+}
+
+@-webkit-keyframes light {
+  0% {
+    background-position: -600px;
+  }
+  100% {
+    background-position: 0px;
+  }
+}
+
+.bounce:hover {
+  animation: bounce 1s;
+  -webkit-animation: bounce 1s;
+}

@@ -20,7 +20,7 @@ $sideFont: system-ui, sans-serif;
 body {
   @include centerDiv();
   height: 100vh;
-  background-image: url(./img/5_background/desert2.jpg);
+  background-image: url(../img/5_background/desert2.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -70,6 +70,7 @@ canvas {
     border: 4px solid orange;
     border-radius: 10px;
     display: flex;
+    width: 100%;
     padding: 0.5rem;
     gap: 2rem;
     user-select: none;
@@ -125,10 +126,4 @@ canvas {
     width: 100%;
     height: 100%;
   }
-}
-
-@media only screen and (max-width: 1000px) {
-  /* h1 {
-    display: none;
-  } */
 }

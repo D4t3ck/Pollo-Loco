@@ -18,11 +18,13 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 main h1 {
-  font-size: clamp(2rem, 10vw, 40rem);
+  font-size: clamp(2rem, 20vw, 20rem);
   letter-spacing: 0.5rem;
   text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+  margin-block: 0;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
@@ -30,4 +32,51 @@ main h1 {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000;
   -webkit-text-fill-color: rgb(250, 165, 0);
+}
+
+button {
+  padding: 0.8em 0em;
+  width: 350px;
+  background: #95d8f5;
+  border-radius: 15px;
+  border: 0;
+  color: #fff;
+  font-size: 2rem;
+  font-family: system-ui, sans-serif;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;
+  -webkit-text-fill-color: rgb(250, 165, 0);
+  letter-spacing: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 1em 2em;
+  text-transform: uppercase;
+  box-shadow: none;
+  box-shadow: -1px 5px 5px 0px #000;
+}
+
+.light {
+  background: linear-gradient(135deg, #6dd0fa 0%, #6dd0fa 40%, #ffffff 50%, #6dd0fa 60%, #6dd0fa 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#6dd0fa", endColorstr="#6dd0fa",GradientType=1 );
+  background-repeat: no-repeat;
+  background-position: 0px;
+  background-size: 300%;
+}
+
+.light:hover {
+  animation: light 1s;
+  -webkit-animation: light 1s;
+}
+
+@keyframes light {
+  0% {
+    background-position: -600px;
+  }
+  100% {
+    background-position: 0px;
+  }
+}
+.bounce:hover {
+  animation: bounce 1s;
+  -webkit-animation: bounce 1s;
 }/*# sourceMappingURL=index.css.map */
