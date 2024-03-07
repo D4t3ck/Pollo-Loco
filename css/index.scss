@@ -1,0 +1,42 @@
+@font-face {
+    font-family: "zabras";
+    src: url("../font/zabars.ttf") format("truetype");
+  }
+  
+  $mainFont: "zabras", system-ui, sans-serif;
+  $sideFont: system-ui, sans-serif;
+  
+  @mixin centerDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image: url("../img/5_background/desert2.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        font-size: clamp(2rem, 10vw, 40rem);
+        letter-spacing: 0.5rem;
+        text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+        user-select: none;
+        font-family: $mainFont;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #000;
+        -webkit-text-fill-color: rgba(250, 165, 0, 1);
+      }
+  }
