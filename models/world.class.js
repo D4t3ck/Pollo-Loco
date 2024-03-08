@@ -12,23 +12,22 @@ class World {
   throwableObject = [];
   collectedBottles = 0;
 
-  AUDIO =  {
-    background_music: new Audio("./audio/backgroundMusicInGame.mp3"),
-
+  AUDIO = {
+    background_music: new Audio("./audio/backgroundMusic.mp3"),
     walking_sound: new Audio("./audio/walking.mp3"),
-    // jumping_sound: new Audio("./"),
-    // snoring_sound: new Audio("./"),
-    // hurt_sound: new Audio("./"),
-    // dead_sound: new Audio("./"),
-
-    // bottle_collect: new Audio("./"),
-    // bottle_smash: new Audio("./"),
-    // throw_sound: new Audio("./"),
-    // chicken_dead: new Audio("./"),
-    // endboss_fight: new Audio("./"),
-    // coin_collect: new Audio("./"),
-    // game_over: new Audio("./"),
-    // game_win: new Audio("./"),
+    jumping_sound: new Audio("./audio/jump.mp3"),
+    snoring_sound: new Audio("./audio/snoring.mp3"),
+    hurt_sound: new Audio("./audio/hurt.mp3"),
+    dead_sound: new Audio("./audio/dead.mp3"),
+    coin_collect: new Audio("./audio/coinCollected.mp3"),
+    bottle_collect: new Audio("./audio/bottleCollected.mp3"),
+    bottle_smash: new Audio("./audio/bottleSmash.mp3"),
+    throw_sound: new Audio("./audio/bottleThrow.mp3"),
+    chicken_splat: new Audio("./audio/chickenSplat.mp3"),
+    chicken_dead: new Audio("./audio/chickenDead.mp3"),
+    endboss_fight: new Audio("./audio/endboss_fight.mp3"),
+    game_over: new Audio("./audio/game_over.mp3"),
+    game_win: new Audio("./audio/win.mp3"),
   };
 
   constructor(canvas, keyboard) {
@@ -71,12 +70,12 @@ class World {
   }
 
   killChicken(enemy, performJump = true) {
-    //this.chickenDeadSound.currentTime = 0;
+    this.AUDIO.chicken_splat.currentTime = 0;
     enemy.isDead();
     if (performJump) {
       this.character.jump();
     }
-    //this.chickenDeadSound.play();
+    this.AUDIO.chicken_splat.play();
     clearInterval(enemy.animateChickenInterval);
     clearInterval(enemy.moveChickenInterval);
     enemy.loadImage(enemy.IMAGE_DEAD);
@@ -100,8 +99,8 @@ class World {
         this.bottleCollected(bottle);
         this.character.raiseProgressbarBottle();
         this.statusBarBottle.setPercentage(this.character.progressBottleBar);
-        // this.AUDIO.bottle_collect_sound.currentTime = 0;
-        // this.AUDIO.bottle_collect_sound.play();
+        this.AUDIO.bottle_collect.currentTime = 0;
+        this.AUDIO.bottle_collect.play();
       }
     });
   }
@@ -117,11 +116,11 @@ class World {
   checkCollisionCoins() {
     this.level.coins.forEach((coin) => {
       if (this.character.isColliding(coin)) {
-        // this.AUDIO.coin_collect_sound.currentTime = 0;
+        this.AUDIO.coin_collect.currentTime = 0;
         this.coinCollected(coin);
         this.character.raiseProgressbarCoin();
         this.statusBarCoin.setPercentage(this.character.progessCoinBar);
-        // this.AUDIO.coin_collect_sound.play();
+        this.AUDIO.coin_collect.play();
       }
     });
   }
@@ -170,7 +169,7 @@ class World {
       this.collectedBottles--;
       this.character.reduceProgressbarBottle();
       this.statusBarBottle.setPercentage(this.character.progressBottleBar);
-      // this.AUDIO.throw_sound.play();
+      this.AUDIO.throw_sound.play();
     }
   }
 
@@ -187,10 +186,11 @@ class World {
         if (bottle.isColliding(endboss)) {
           endboss.hit(endboss.energy);
           this.statusBarEndboss.setPercentage(endboss.energy);
-          // this.AUDIO.chicken_dead_sound.currentTime = 0;
-          // this.AUDIO.bottle_smash.currentTime = 0;
-          // this.AUDIO.bottle_smash.play();
-          // this.AUDIO.chicken_dead_sound.play();
+          this.AUDIO.chicken_splat.currentTime = 0;
+          this.AUDIO.bottle_smash.currentTime = 0;
+          this.AUDIO.bottle_smash.play();
+          this.AUDIO.chicken_splat.play();
+          this.AUDIO.chicken_dead.play();
           setTimeout(() => {
             this.eraseThrowingBottleFromArray(bottle);
           }, 180);

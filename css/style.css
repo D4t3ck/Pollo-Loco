@@ -55,7 +55,7 @@ canvas {
   z-index: 100;
 }
 .menu_container .menu {
-  border: 4px solid orange;
+  border: 2px solid orange;
   border-radius: 10px;
   display: flex;
   width: 100%;
@@ -81,7 +81,8 @@ canvas {
   width: 100%;
   height: 100%;
 }
-.menu_container .menu div .menu_img {
+.menu_container .menu div .audioOnIcon,
+.menu_container .menu div .audioOffIcon {
   width: 2.5rem;
   height: 2.5rem;
   -webkit-user-select: none;

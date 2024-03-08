@@ -28,10 +28,9 @@
     <script src="./models/level.class.js"></script>
     <script src="./levels/level1.js"></script>
     <script src="./js/game.js"></script>
-    <script src="./js/script.js"></script>
+    
   </head>
   <body onload="init()">
-    
     <main id="main_container" class="main_container">
       <div class="wrapper">
         <canvas id="canvas" width="1280" height="720"> </canvas>
@@ -57,15 +56,24 @@
             </div>
             <div class="menu_btn">
               <img
-                id="sound"
-                class="menu_img"
+                onclick="turnSoundOff('soundOffIcon', 'soundOnIcon', 'd_none')"
+                id="soundOffIcon"
+                class="audioOffIcon d_none"
+                src="./img/sound_off_50x50.png"
+                alt="Sound Off"
+              />
+              <img
+                onclick="turnSoundOn('soundOffIcon', 'soundOnIcon', 'd_none')"
+                id="soundOnIcon"
+                class="audioOnIcon"
                 src="./img/sound_on_50x50.png"
-                alt="ToDo"
+                alt="Sound On"
               />
             </div>
-          </div>
+            
         </div>
       </div>
     </main>
+    <script src="./js/script.js"></script>
   </body>
 </html>

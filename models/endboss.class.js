@@ -88,6 +88,7 @@ class Endboss extends MovableObject {
 
   dead() {
     this.playAnimation(this.IMAGES_DEAD);
+    world.AUDIO.game_win.play();
     //gameIsWon();
   }
 

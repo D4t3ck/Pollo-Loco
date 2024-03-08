@@ -10,6 +10,7 @@ class Character extends MovableObject {
   isSnoring = false;
   gameWon = false;
   gameLost = false;
+  soundPlayed = false;
 
   offset = {
     top: 150,
@@ -186,7 +187,7 @@ class Character extends MovableObject {
 
   jump() {
     super.jump();
-    //addjumpsound
+    world.AUDIO.jumping_sound.play();
     this.stopSnoring();
   }
 
@@ -195,21 +196,23 @@ class Character extends MovableObject {
   }
 
   deathAnimation() {
-    // addgameLost
+    // gameIsLost();
     this.playAnimation(this.IMAGES_DEAD);
     this.walking_sound.pause();
-    //deathSound
+    world.AUDIO.dead_sound.play();
     this.stopSnoring();
   }
 
   hurtAnimation() {
     this.playAnimation(this.IMAGES_HURT);
-    //addsound
+    world.AUDIO.hurt_sound.play();
     this.stopSnoring();
+    soundPlayed = true;
   }
 
   stopSnoring() {
     if (this.isSnoring) {
+      world.AUDIO.snoring_sound.pause();
       this.snoring = false;
       this.setTimeStamp();
     }
@@ -228,6 +231,7 @@ class Character extends MovableObject {
   sleepAnimation() {
     this.isSnoring = true;
     this.playAnimation(this.IMAGES_SLEEPING);
+    world.AUDIO.snoring_sound.play();
   }
 
   idleAnimation() {
