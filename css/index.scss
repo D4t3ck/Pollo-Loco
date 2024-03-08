@@ -3,8 +3,8 @@
   src: url("../font/zabars.ttf") format("truetype");
 }
 
-$mainFont: "zabras", system-ui, sans-serif;
-$sideFont: system-ui, sans-serif;
+$mainFont: "zabras", sans-serif;
+$systemFont: system-ui, sans-serif;
 
 @mixin centerDiv {
   display: flex;
@@ -49,7 +49,7 @@ button {
   border: 0;
   color: #fff;
   font-size: 2rem;
-  font-family: $sideFont;
+  font-family: $systemFont;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000;
   -webkit-text-fill-color: rgba(250, 165, 0, 1);

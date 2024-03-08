@@ -1,10 +1,12 @@
 @font-face {
   font-family: "zabras";
-  src: url("./font/zabars.ttf") format("truetype");
+  src: url("../font/zabars.ttf") format("truetype");
 }
 
 $mainFont: "zabras", system-ui, sans-serif;
-$sideFont: system-ui, sans-serif;
+$sideFont: "Roboto";
+$sideFont2: "Raleway";
+$systemFont: system-ui, sans-serif;
 
 @mixin centerDiv {
   display: flex;
@@ -36,12 +38,6 @@ body {
   display: flex;
   justify-content: center;
   margin: 10rem;
-}
-
-.main_section {
-  @include centerDiv();
-  font-family: $mainFont;
-  flex-direction: column;
 }
 
 .wrapper {

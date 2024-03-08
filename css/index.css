@@ -28,7 +28,7 @@ main h1 {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  font-family: "zabras", system-ui, sans-serif;
+  font-family: "zabras", sans-serif;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000;
   -webkit-text-fill-color: rgb(250, 165, 0);
