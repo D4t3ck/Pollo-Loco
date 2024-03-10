@@ -13,6 +13,7 @@ class World {
   collectedBottles = 0;
 
   AUDIO = {
+    index_background: new Audio("./audio/indexBackground.mp3"),
     background_music: new Audio("./audio/backgroundMusic.mp3"),
     walking_sound: new Audio("./audio/walking.mp3"),
     jumping_sound: new Audio("./audio/jump.mp3"),
@@ -132,21 +133,19 @@ class World {
 
   //////////////////////////////////
 
-  checkCollisionsEndboss() {
-    this.level.endboss.forEach((endboss) => {
-      if (
-        this.character.isColliding(endboss) &&
-        !this.character.isHurt() &&
-        !endboss.isDead()
-      ) {
-        if (this.character.isAboveGround()) {
-        } else {
-          this.character.hit();
-          this.statusBarLife.setPercentage(this.character.energy);
-        }
-      }
-    });
-  }
+ checkCollisionsEndboss() {
+  this.level.endboss.forEach((endboss) => {
+    if (
+      this.character.isColliding(endboss) &&
+      !this.character.isHurt() &&
+      !endboss.isDead()
+    ) {
+      this.character.hit();
+      this.statusBarLife.setPercentage(this.character.energy);
+    }
+  });
+}
+
 
   //////////////////////////////////////////////////////////////
 
@@ -213,10 +212,7 @@ class World {
   }
 
   canBottleBeThrown() {
-    return (
-      (this.keyboard.LEFT_CLICK && this.collectedBottles > 0) ||
-      (this.keyboard.F && this.collectedBottles > 0)
-    );
+    return this.keyboard.F && this.collectedBottles > 0;
   }
 
   eraseThrowingBottleFromArray(bottle) {

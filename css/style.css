@@ -81,10 +81,9 @@ canvas {
   width: 100%;
   height: 100%;
 }
-.menu_container .menu div .audioOnIcon,
-.menu_container .menu div .audioOffIcon {
-  width: 2.5rem;
-  height: 2.5rem;
+.menu_container .menu div .menu_btn img {
+  width: 3rem;
+  height: 3rem;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;

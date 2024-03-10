@@ -92,8 +92,6 @@ class Character extends MovableObject {
 
   world;
 
-  /* walking_sound = new Audio("./audio/walking.mp3"); */
-
   constructor() {
     super().loadImage(this.IMAGES_WALKING[0]);
     this.loadImages(this.IMAGES_WALKING);

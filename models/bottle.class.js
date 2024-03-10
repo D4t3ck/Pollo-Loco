@@ -1,6 +1,6 @@
 class Bottle extends DrawableObject {
-	width = 100;
-	height = 80;
+	width = 120;
+	height = 90;
 	index = Math.floor(Math.random() * 2);
 
 	offset = {

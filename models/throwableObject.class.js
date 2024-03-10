@@ -26,8 +26,8 @@ class ThrowableObject extends MovableObject {
     super().loadImage("./img/6_salsa_bottle/salsa_bottle.png");
     this.x = x;
     this.y = y;
-    this.width = 90;
-    this.height = 80;
+    this.width = 120;
+    this.height = 90;
     this.otherDirection = otherDirection;
     this.loadImages(this.IMAGES_BOTTLE_ROTATION);
     this.loadImages(this.IMAGES_BOTTLE_SPLASH);

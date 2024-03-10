@@ -54,17 +54,5 @@ class Keyboard {
         keyboard.SPACE = false;
       }
     });
-
-    window.addEventListener("mousedown", (e) => {
-      if (e.button === 0) {
-        keyboard.LEFT_CLICK = true;
-      }
-    });
-
-    window.addEventListener("mouseup", (e) => {
-      if (e.button === 0) {
-        keyboard.LEFT_CLICK = false;
-      }
-    });
   }
 }
