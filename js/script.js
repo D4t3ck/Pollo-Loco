@@ -6,48 +6,57 @@ function playBackgroundMusic() {
   }, 1000);
 }
 
-function turnSoundOn(id, id2, classList) {
+/**
+ * Schaltet den Ton ein oder aus und aktualisiert die Klassen entsprechend.
+ * @param {string} id - Die ID des ersten Elements.
+ * @param {string} id2 - Die ID des zweiten Elements.
+ * @param {string} classList - Die Klassenliste, die getoggelt werden soll.
+ * @param {boolean} mute - Gibt an, ob der Ton stummgeschaltet werden soll (true) oder nicht (false).
+ */
+function toggleSound(id, id2, classList, mute) {
   toggleClassList(id, id2, classList);
-  world.AUDIO.background_music.muted = true;
-  world.AUDIO.walking_sound.muted = true;
-  world.AUDIO.jumping_sound.muted = true;
-  world.AUDIO.snoring_sound.muted = true;
-  world.AUDIO.hurt_sound.muted = true;
-  world.AUDIO.dead_sound.muted = true;
-  world.AUDIO.coin_collect.muted = true;
-  world.AUDIO.bottle_collect.muted = true;
-  world.AUDIO.bottle_smash.muted = true;
-  world.AUDIO.throw_sound.muted = true;
-  world.AUDIO.chicken_splat.muted = true;
-  world.AUDIO.chicken_dead.muted = true;
-  world.AUDIO.game_win.muted = true;
-  world.AUDIO.game_over.muted = true;
-  world.AUDIO.endboss_fight.muted = true;
+  const sounds = [
+    "background_music", "walking_sound", "jumping_sound", "snoring_sound",
+    "hurt_sound", "dead_sound", "coin_collect", "bottle_collect",
+    "bottle_smash", "throw_sound", "chicken_splat", "chicken_dead",
+    "game_win", "game_over", "endboss_fight"
+  ];
+  sounds.forEach(sound => {
+    world.AUDIO[sound].muted = mute;
+  });
 }
 
-function turnSoundOff(id, id2, classList) {
-  toggleClassList(id, id2, classList);
-  world.AUDIO.background_music.muted = false;
-  world.AUDIO.walking_sound.muted = false;
-  world.AUDIO.jumping_sound.muted = false;
-  world.AUDIO.snoring_sound.muted = false;
-  world.AUDIO.hurt_sound.muted = false;
-  world.AUDIO.dead_sound.muted = false;
-  world.AUDIO.coin_collect.muted = false;
-  world.AUDIO.bottle_collect.muted = false;
-  world.AUDIO.bottle_smash.muted = false;
-  world.AUDIO.throw_sound.muted = false;
-  world.AUDIO.chicken_splat.muted = false;
-  world.AUDIO.chicken_dead.muted = false;
-  world.AUDIO.game_win.muted = false;
-  world.AUDIO.game_over.muted = false;
-  world.AUDIO.endboss_fight.muted = false;
-}
-
+/**
+ * Toggelt die angegebene Klassenliste für zwei Elemente.
+ * @param {string} id - Die ID des ersten Elements.
+ * @param {string} id2 - Die ID des zweiten Elements.
+ * @param {string} classList - Die Klassenliste, die getoggelt werden soll.
+ */
 function toggleClassList(id, id2, classList) {
   document.getElementById(id).classList.toggle(classList);
   document.getElementById(id2).classList.toggle(classList);
 }
+
+/**
+ * Schaltet den Ton ein.
+ * @param {string} id - Die ID des ersten Elements.
+ * @param {string} id2 - Die ID des zweiten Elements.
+ * @param {string} classList - Die Klassenliste, die getoggelt werden soll.
+ */
+function turnSoundOn(id, id2, classList) {
+  toggleSound(id, id2, classList, true);
+}
+
+/**
+ * Schaltet den Ton aus.
+ * @param {string} id - Die ID des ersten Elements.
+ * @param {string} id2 - Die ID des zweiten Elements.
+ * @param {string} classList - Die Klassenliste, die getoggelt werden soll.
+ */
+function turnSoundOff(id, id2, classList) {
+  toggleSound(id, id2, classList, false);
+}
+
 
 function fullscreen() {
   let fullscreen = document.getElementById("canvas");

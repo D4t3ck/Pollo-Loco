@@ -28,14 +28,37 @@
     <script src="./models/level.class.js"></script>
     <script src="./levels/level1.js"></script>
     <script src="./js/game.js"></script>
-    
   </head>
   <body onload="init()">
     <main id="main_container" class="main_container">
+      <!-- WRAPPER -->
       <div class="wrapper">
-        <canvas id="canvas" width="1280" height="720"> </canvas>
+        <canvas class="d_none" id="canvas" width="1280" height="720"> </canvas>
 
-        <div id="menuContainer" class="menu_container">
+        <!--STARTSCREEN-->
+        <div class="start_Screen_Container" id="startScreenContainer">
+          <img
+            src="./img/9_intro_outro_screens/start/startscreen_2.png"
+            id="startScreen"
+          />
+          <div class="btn_container">
+
+            <button class="start_Button">START</button>
+
+            <button class="controls_Button">CONTROLS</button>
+
+            <img
+              class="toggleFullscreenBtn"
+              src="./img/fullscreen_50x50.png"
+              alt="Fullscreen On"
+              onclick="fullscreen()"
+            />
+          </div>
+        </div>
+        <!--STARTSCREEN-->
+
+        <!-- MENU -->
+        <!-- <div id="menuContainer" class="menu_container">
           <div id="menu" class="menu">
             <div class="menu_btn">
               <img
@@ -71,8 +94,11 @@
               />
             </div>
             
-        </div>
+            
+        </div> -->
+        <!-- MENU -->
       </div>
+      <!-- WRAPPER -->
     </main>
     <script src="./js/script.js"></script>
   </body>

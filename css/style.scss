@@ -4,8 +4,6 @@
 }
 
 $mainFont: "zabras", system-ui, sans-serif;
-$sideFont: "Roboto";
-$sideFont2: "Raleway";
 $systemFont: system-ui, sans-serif;
 
 @mixin centerDiv {
@@ -51,12 +49,67 @@ body {
 }
 
 canvas {
-  /* width: 100%; */
-  /* object-fit: contain; */
   display: block;
   background-color: black;
 }
 
+/* STARTSCREEN */
+.start_Screen_Container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .btn_container {
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+    display: flex;
+    gap: 1rem;
+
+    img {
+      
+      cursor: pointer;
+    }
+  }
+
+  .start_Button {
+    width: 100%;
+    padding: 0.5rem;
+    font-family: $mainFont;
+    font-size: 1.25rem;
+    color: black;
+    background-color: rgba(250, 165, 0, 1);
+    border: unset;
+    border-radius: 5px;
+    box-shadow: -1px 1px 5px 0px #000;
+    cursor: pointer;
+  }
+
+  .controls_Button {
+    width: 100%;
+    padding: 0.5rem;
+    font-family: $mainFont;
+    font-size: 1.25rem;
+    color: black;
+    background-color: rgba(250, 165, 0, 1);
+    border: unset;
+    border-radius: 5px;
+    box-shadow: -1px 1px 5px 0px #000;
+    cursor: pointer;
+  }
+
+  .btnPlay {
+  }
+}
+/* STARTSCREEN */
+
+/* MENU */
 .menu_container {
   position: absolute;
   bottom: 85%;
@@ -66,14 +119,15 @@ canvas {
     border: 2px solid orange;
     border-radius: 10px;
     display: flex;
-    width: 100%;
+    height: 100%;
+    min-width: 100%;
     padding: 0.5rem;
     gap: 2rem;
     user-select: none;
 
     div {
       @include centerDiv();
-      font-family: $sideFont;
+      font-family: $systemFont;
       width: 100%;
       height: 100%;
       padding: 0.5rem;
@@ -98,6 +152,7 @@ canvas {
     }
   }
 }
+/* MENU */
 
 ///////////////////////////////
 
