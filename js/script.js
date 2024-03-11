@@ -114,7 +114,7 @@ function showWinScreen() {
 }
 
 function showGameOverScreen() {
-  document.getElementById("").classList.remove("d_none");
+  document.getElementById("gameOverScreen").classList.remove("d_none");
 }
 
 function playWinSound() {

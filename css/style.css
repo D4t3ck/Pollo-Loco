@@ -235,15 +235,54 @@ canvas {
 }
 
 /* WIN_SCREEN */
-/* .controls_container {
+/* GAME_OVER_SCREEN */
+.gameOver_screen_container {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 2;
-} */
+  width: 100%;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.82);
+}
+.gameOver_screen_container .gameOver_screen_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.gameOver_screen_container .gameOver_screen_content h2 {
+  margin-bottom: 3rem;
+  font-family: "zabras", sans-serif;
+  font-size: 160px;
+  color: #ffcc00;
+  letter-spacing: 1rem;
+  text-shadow: 2px 2px 8px rgb(0, 0, 0);
+}
+.gameOver_screen_container .gameOver_screen_content .restart_lose_btn {
+  width: 10rem;
+  min-width: 1rem;
+  padding: 0.5rem;
+  font-family: "zabras", sans-serif;
+  font-size: 1.5rem;
+  color: black;
+  background-color: rgb(250, 165, 0);
+  border: unset;
+  border-radius: 5px;
+  box-shadow: -1px 1px 5px 0px #000;
+}
+.gameOver_screen_container .gameOver_screen_content .restart_lose_btn:hover {
+  cursor: pointer;
+  background-color: rgb(253, 183, 44);
+}
+
+/* GAME_OVER_SCREEN */
 @media only screen and (max-width: 1300px) {
   .wrapper {
     width: 100%;
