@@ -39,7 +39,7 @@ body {
 }
 
 canvas {
-  display: block;
+  display: flex;
   background-color: black;
 }
 
@@ -57,27 +57,28 @@ canvas {
   z-index: 100;
 }
 .menu_container .restart_btn,
-.menu_container .sound_btn,
-.menu_container .fullscreen_btn {
+.menu_container .fullscreen_btn,
+.menu_container .sound_btn {
   width: 100%;
   padding: 0.5rem;
-  font-family: "zabras", sans-serif;
+  font-family: system-ui, sans-serif;
   font-size: 1.25rem;
   color: black;
   background-color: rgb(250, 165, 0);
   border: unset;
   border-radius: 5px;
+  letter-spacing: 2px;
   box-shadow: -1px 1px 5px 0px #000;
 }
 .menu_container .restart_btn:hover,
-.menu_container .sound_btn:hover,
-.menu_container .fullscreen_btn:hover {
+.menu_container .fullscreen_btn:hover,
+.menu_container .sound_btn:hover {
   cursor: pointer;
   background-color: rgb(253, 183, 44);
 }
 .menu_container .restart_btn img,
-.menu_container .sound_btn img,
-.menu_container .fullscreen_btn img {
+.menu_container .fullscreen_btn img,
+.menu_container .sound_btn img {
   width: 1.5rem;
   height: 1.5rem;
 }
@@ -108,8 +109,9 @@ canvas {
   border-radius: 5px;
   z-index: 100;
 }
-.start_screen_container .start_Button {
+.start_screen_container .back_btn {
   width: 100%;
+  min-width: 2rem;
   padding: 0.5rem;
   font-family: "zabras", sans-serif;
   font-size: 1.25rem;
@@ -119,11 +121,12 @@ canvas {
   border-radius: 5px;
   box-shadow: -1px 1px 5px 0px #000;
 }
-.start_screen_container .start_Button:hover {
+.start_screen_container .back_btn:hover {
   cursor: pointer;
   background-color: rgb(253, 183, 44);
 }
-.start_screen_container .controls_Button {
+.start_screen_container .start_btn,
+.start_screen_container .controls_btn {
   width: 100%;
   padding: 0.5rem;
   font-family: "zabras", sans-serif;
@@ -134,7 +137,8 @@ canvas {
   border-radius: 5px;
   box-shadow: -1px 1px 5px 0px #000;
 }
-.start_screen_container .controls_Button:hover {
+.start_screen_container .start_btn:hover,
+.start_screen_container .controls_btn:hover {
   cursor: pointer;
   background-color: rgb(253, 183, 44);
 }

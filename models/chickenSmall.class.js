@@ -30,7 +30,13 @@ class ChickenSmall extends MovableObject {
 
   animateSmallChicken() {
     this.moveChickenInterval = setInterval(() => {
-       this.moveLeft();
+      if (world.character.x < this.x) {
+        this.moveLeft();
+        this.otherDirection = false;
+      } else {
+        this.moveRight();
+        this.otherDirection = true;
+      }
     }, 1000 / 30);
 
     this.animateChickenInterval = setInterval(() => {

@@ -38,7 +38,7 @@
         <!-- MENU -->
         <div class="menu_container d_none" id="menu">
           <button onclick="restartGame()" class="restart_btn">
-            <img src="img/restart_50x50.png" alt="Restart" />
+            Menu
           </button>
 
           <button class="fullscreen_btn">
@@ -86,9 +86,11 @@
             id="startScreen"
           />
           <div class="btn_container">
-            <button onclick="startGame()" class="start_Button">START</button>
+            <button onclick="history.back()" class="back_btn">&#88;</button>
 
-            <button onclick="openControls()" class="controls_Button">
+            <button onclick="startGame()" class="start_btn">START</button>
+
+            <button onclick="openControls()" class="controls_btn">
               CONTROLS
             </button>
           </div>

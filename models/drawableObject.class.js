@@ -14,14 +14,10 @@ class DrawableObject {
   };
 
   loadImage(path) {
-    this.img = new Image(); // == this.img = document.getElementById('image') <img id="image">
+    this.img = new Image();
     this.img.src = path;
   }
 
-  /**
-   *
-   * @param {Array} arr - ['img/image1.png', 'img/image2.png', ...]
-   */
   loadImages(arr) {
     arr.forEach((path) => {
       let img = new Image();

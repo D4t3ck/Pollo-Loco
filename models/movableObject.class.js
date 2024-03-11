@@ -20,14 +20,12 @@ class MovableObject extends DrawableObject {
 
   isAboveGround() {
     if (this instanceof ThrowableObject) {
-      // throwable objects should always fall
       return true;
     } else {
       return this.y <= this.ground;
     }
   }
 
-  // character.isColliding(chicken);
   isColliding(mo) {
     return (
       this.x + this.width - this.offset.right > mo.x + mo.offset.left &&
@@ -47,8 +45,8 @@ class MovableObject extends DrawableObject {
   }
 
   isHurt() {
-    let timePassed = new Date().getTime() - this.lastHit; // difference in ms
-    timePassed = timePassed / 1000; // difference in sec
+    let timePassed = new Date().getTime() - this.lastHit;
+    timePassed = timePassed / 1000;
     return timePassed < 1;
   }
 
@@ -57,21 +55,21 @@ class MovableObject extends DrawableObject {
   }
 
   raiseProgressbarBottle() {
-    this.progressBottleBar += 20;
+    this.progressBottleBar += 10;
   }
 
   reduceProgressbarBottle() {
-    this.progressBottleBar -= 20;
+    this.progressBottleBar -= 10;
   }
 
   raiseProgressbarCoin() {
-    this.progessCoinBar += 20;
+    this.progessCoinBar += 5;
   }
 
   //////////////////////////////////////////////////////////////
 
   playAnimation(images) {
-    let i = this.currentImage % images.length; // let i = 0 % 6; // 0, Rest 0
+    let i = this.currentImage % images.length;
     let path = images[i];
     this.img = this.imageCache[path];
     this.currentImage++;
@@ -89,10 +87,3 @@ class MovableObject extends DrawableObject {
     this.speedY = 30;
   }
 }
-
-// if (
-//   character.x + characcter.width > chicken.x &&
-//   character.y + character.height > chicken.y &&
-//   character.x < chicken.x &&
-//   characcter.y < chicken.y + moveBy.height
-// );

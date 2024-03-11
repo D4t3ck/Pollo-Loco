@@ -3,7 +3,7 @@ let level1;
 function initLevel() {
   level1 = new Level(
     [
-      new Chicken(400),
+      new Chicken(-400),
       new Chicken(800),
       new Chicken(1000),
       new Chicken(1300),
@@ -13,7 +13,7 @@ function initLevel() {
       new Chicken(2700),
       new Chicken(3200),
       new Chicken(3500),
-      new ChickenSmall(600),
+      new ChickenSmall(-600),
       new ChickenSmall(900),
       new ChickenSmall(1400),
       new ChickenSmall(1700),
@@ -119,7 +119,7 @@ function initLevel() {
       ),
     ],
     [
-      new Bottle(200),
+      new Bottle(-800),
       new Bottle(900),
       new Bottle(1250),
       new Bottle(1600),
@@ -132,7 +132,7 @@ function initLevel() {
     ],
 
     [
-      new Coin(200),
+      new Coin(-800),
       new Coin(450),
       new Coin(550),
       new Coin(700),

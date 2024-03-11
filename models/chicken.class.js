@@ -29,15 +29,21 @@ class Chicken extends MovableObject {
   }
 
   animateChicken() {
-		this.moveChickenInterval = setInterval(() => {
-			this.moveLeft();
-		}, 1000 / 30);
+    this.moveChickenInterval = setInterval(() => {
+      if (world.character.x < this.x) {
+        this.moveLeft();
+        this.otherDirection = false;
+      } else {
+        this.moveRight();
+        this.otherDirection = true;
+      }
+    }, 1000 / 30);
 
-		this.animateChickenInterval = setInterval(() => {
-			this.playAnimation(this.IMAGES_WALKING);
-		}, 100);
+    this.animateChickenInterval = setInterval(() => {
+      this.playAnimation(this.IMAGES_WALKING);
+    }, 100);
 
-		intervalIds.push(this.moveChickenInterval);
-		intervalIds.push(this.animateChickenInterval);
-	}
+    intervalIds.push(this.moveChickenInterval);
+    intervalIds.push(this.animateChickenInterval);
+  }
 }
