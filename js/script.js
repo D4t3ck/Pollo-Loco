@@ -93,53 +93,45 @@ function restartGame() {
 
 function gameWin() {
   setTimeout(() => {
-		clearIntervalIds();
-		// showWinScreen();
-		playWinSound();
-		resetMusic();
-	}, 2000);
+    clearIntervalIds();
+    showWinScreen();
+    playWinSound();
+    resetMusic();
+  }, 2000);
 }
 
 function gameOver() {
-	setTimeout(() => {
-		clearIntervalIds();
-		// showGameOverScreen();
-		playOverSound();
-		resetMusic();
-	}, 1000);
+  setTimeout(() => {
+    clearIntervalIds();
+    showGameOverScreen();
+    playOverSound();
+    resetMusic();
+  }, 1000);
+}
+
+function showWinScreen() {
+  document.getElementById("winScreen").classList.remove("d_none");
+}
+
+function showGameOverScreen() {
+  document.getElementById("").classList.remove("d_none");
 }
 
 function playWinSound() {
-	world.AUDIO.game_win.play();
+  world.AUDIO.game_win.play();
 }
 
 function playOverSound() {
-	world.AUDIO.game_over.play();
+  world.AUDIO.game_over.play();
 }
 
 function resetMusic() {
-	world.AUDIO.background_music.currentTime = 0;
-	world.AUDIO.endboss_fight.currentTime = 0;
-	world.AUDIO.background_music.pause();
-	// world.AUDIO.endboss_fight.pause();
-	world.character.stopSnoring();
+  world.AUDIO.background_music.currentTime = 0;
+  world.AUDIO.endboss_fight.currentTime = 0;
+  world.AUDIO.background_music.pause();
+  world.AUDIO.endboss_fight.pause();
+  world.character.stopSnoring();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* FULLSCREEN */
 function toggleFullscreen() {

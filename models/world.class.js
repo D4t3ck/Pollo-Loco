@@ -81,7 +81,7 @@ class World {
     clearInterval(enemy.moveChickenInterval);
     enemy.loadImage(enemy.IMAGE_DEAD);
     setTimeout(() => {
-      this.eraseEnemyFromArray(enemy);
+      this.eraseEnemyFromArray(enemy); //// setTimeout rausnehmen
     }, 550);
   }
 

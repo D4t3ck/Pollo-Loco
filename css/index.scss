@@ -171,13 +171,12 @@ main {
       border: unset;
       border-radius: 5px;
       box-shadow: -1px 1px 5px 0px #000;
-      cursor: pointer;
+      
+      &:hover {
+        cursor: pointer;
+        background-color: rgb(253, 183, 44);
+      }
     }
-  }
-  .story_btn:hover,
-  .impress_btn:hover,
-  .privacy_policy_btn:hover {
-    background-color: rgb(253, 183, 44);
   }
 
   .story {

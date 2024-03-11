@@ -91,7 +91,6 @@
             <button onclick="openControls()" class="controls_Button">
               CONTROLS
             </button>
-
           </div>
         </div>
 
@@ -136,10 +135,15 @@
 
         <!-- WIN_SCREEN -->
         <div class="win_Screen_container d_none" id="winScreen">
-          <h2>You win!</h2>
-          <img src="./img/laurel-wreath-150577_1280.png" alt="" />
+          <div class="win_screen_content">
+            <h2>You win!</h2>
+            <button onclick="restartGame()" class="restart_win_btn">
+              Back to menu
+            </button>
+          </div>
         </div>
         <!-- WIN_SCREEN -->
+        
       </div>
       <!--START_SCREEN-->
       <!-- WRAPPER -->

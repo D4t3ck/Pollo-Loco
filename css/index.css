@@ -106,11 +106,11 @@ main h1 {
   border: unset;
   border-radius: 5px;
   box-shadow: -1px 1px 5px 0px #000;
-  cursor: pointer;
 }
-.footer .story_btn:hover,
-.footer .impress_btn:hover,
-.footer .privacy_policy_btn:hover {
+.footer .btn_container .story_btn:hover,
+.footer .btn_container .impress_btn:hover,
+.footer .btn_container .privacy_policy_btn:hover {
+  cursor: pointer;
   background-color: rgb(253, 183, 44);
 }
 .footer .story {
