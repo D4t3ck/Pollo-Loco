@@ -68,6 +68,21 @@ function turnSoundOff(id, id2, classList) {
   toggleSound(id, id2, classList, false);
 }
 
+/* CONTROLS */
+function openControls() {
+  document.getElementById("controls").classList.remove("d_none");
+  document.getElementById("startScreenContainer").classList.add("d_none");
+}
+
+function closeControls() {
+  document.getElementById("controls").classList.add("d_none");
+  document.getElementById("startScreenContainer").classList.remove("d_none");
+}
+/* CONTROLS */
+
+
+
+
 /* FULLSCREEN */
 function toggleFullscreen() {
   let fullscreenOnImg = document.getElementById("fullscreenOn");
@@ -95,7 +110,6 @@ document.addEventListener("fullscreenchange", function () {
   }
 });
 /* FULLSCREEN */
-
 
 // function fullscreen() {
 //   let fullscreen = document.getElementById("canvas");

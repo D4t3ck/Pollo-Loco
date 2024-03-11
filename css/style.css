@@ -110,7 +110,7 @@ canvas {
   flex-direction: column;
   width: 100%;
   height: 100%;
-  background-color: rgb(255, 201, 93);
+  background: linear-gradient(90deg, hsl(44, 100%, 68%) 0%, hsl(40, 100%, 68%) 100%);
   font-family: system-ui, sans-serif;
   font-size: 2rem;
 }
@@ -121,6 +121,13 @@ canvas {
   width: 100%;
   font-size: 1.5rem;
 }
+.controls .controls_head h2 {
+  font-family: "zabras", system-ui, sans-serif;
+  font-size: 4rem;
+  letter-spacing: 3px;
+  margin-bottom: 4rem;
+  text-align: center;
+}
 .controls .controls_head img {
   position: absolute;
   right: 40px;
@@ -129,6 +136,19 @@ canvas {
   height: 40px;
   cursor: pointer;
 }
+.controls .controls_table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+  width: 100%;
+  max-width: 500px;
+  border-spacing: 0 15px;
+}
+.controls .info {
+  padding-left: 10rem;
+}
+
 /* CONTROLS */
 /* MENU */
 .menu_container {

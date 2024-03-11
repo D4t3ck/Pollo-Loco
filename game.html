@@ -36,7 +36,7 @@
         <canvas class="d_none" id="canvas" width="1280" height="720"> </canvas>
 
         <!--STARTSCREEN-->
-        <div class="start_screen_container d_none" id="startScreenContainer">
+        <div class="start_screen_container" id="startScreenContainer">
           <img
             src="./img/9_intro_outro_screens/start/startscreen_2.png"
             id="startScreen"
@@ -44,7 +44,7 @@
           <div class="btn_container">
             <button class="start_Button">START</button>
 
-            <button class="controls_Button">CONTROLS</button>
+            <button onclick="openControls()" class="controls_Button">CONTROLS</button>
 
             <img
               id="fullscreenOn"
@@ -66,33 +66,36 @@
         </div>
 
         <!-- CONTROLS -->
-        <div class="controls" id="controls">
-          <table>
-            <div class="controls_head">
-              <h2>Controls</h2>
-              <img src="./img/controls/back.png" alt="" />
-            </div>
+        <div class="controls d_none" id="controls">
+
+          <div class="controls_head">
+            <h2>Controls</h2>
+            <img onclick="closeControls()" src="./img/controls/back.png" alt="" />
+          </div>
+
+          <table class="controls_table">
             <tr>
               <td>
                 <img src="./img/controls/w_black.png" alt="" />
+                <span>or</span>
                 <img src="./img/controls/space_black.png" alt="" />
               </td>
-              <td>Jump</td>
+              <td class="info">Jump</td>
             </tr>
 
             <tr>
               <td><img src="./img/controls/a_black.png" alt="" /></td>
-              <td>Move Left</td>
+              <td class="info">Move Left</td>
             </tr>
 
             <tr>
               <td><img src="./img/controls/d_black.png" alt="" /></td>
-              <td>Move Right</td>
+              <td class="info">Move Right</td>
             </tr>
 
             <tr>
               <td><img src="./img/controls/f_black.png" alt="" /></td>
-              <td>Throw Bottle</td>
+              <td class="info">Throw Bottle</td>
             </tr>
           </table>
         </div>
