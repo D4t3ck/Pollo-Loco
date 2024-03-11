@@ -16,12 +16,23 @@ function playBackgroundMusic() {
 function toggleSound(id, id2, classList, mute) {
   toggleClassList(id, id2, classList);
   const sounds = [
-    "background_music", "walking_sound", "jumping_sound", "snoring_sound",
-    "hurt_sound", "dead_sound", "coin_collect", "bottle_collect",
-    "bottle_smash", "throw_sound", "chicken_splat", "chicken_dead",
-    "game_win", "game_over", "endboss_fight"
+    "background_music",
+    "walking_sound",
+    "jumping_sound",
+    "snoring_sound",
+    "hurt_sound",
+    "dead_sound",
+    "coin_collect",
+    "bottle_collect",
+    "bottle_smash",
+    "throw_sound",
+    "chicken_splat",
+    "chicken_dead",
+    "game_win",
+    "game_over",
+    "endboss_fight",
   ];
-  sounds.forEach(sound => {
+  sounds.forEach((sound) => {
     world.AUDIO[sound].muted = mute;
   });
 }
@@ -57,26 +68,46 @@ function turnSoundOff(id, id2, classList) {
   toggleSound(id, id2, classList, false);
 }
 
+/* FULLSCREEN */
+function toggleFullscreen() {
+  let fullscreenOnImg = document.getElementById("fullscreenOn");
+  let fullscreenOffImg = document.getElementById("fullscreenOff");
+  let canvas = document.getElementById("canvas");
 
-function fullscreen() {
-  let fullscreen = document.getElementById("canvas");
-  enterFullscreen(fullscreen);
-}
-
-function enterFullscreen(element) {
-  if (element.requestFullscreen) {
-    element.requestFullscreen();
-  } else if (element.msRequestFullscreen) {
-    element.msRequestFullscreen();
-  } else if (element.webkitRequestFullscreen) {
-    element.webkitRequestFullscreen();
-  }
-}
-
-function exitFullscreen() {
-  if (document.exitFullscreen) {
+  if (!document.fullscreenElement) {
+    canvas.requestFullscreen();
+    fullscreenOnImg.style.display = "inline";
+    fullscreenOffImg.style.display = "none";
+  } else {
     document.exitFullscreen();
-  } else if (document.webkitExitFullscreen) {
-    document.webkitExitFullscreen();
+    fullscreenOnImg.style.display = "none";
+    fullscreenOffImg.style.display = "inline";
   }
 }
+
+document.addEventListener("fullscreenchange", function () {
+  let fullscreenOnImg = document.getElementById("fullscreenOn");
+  let fullscreenOffImg = document.getElementById("fullscreenOff");
+
+  if (!document.fullscreenElement) {
+    fullscreenOnImg.style.display = "none";
+    fullscreenOffImg.style.display = "inline";
+  }
+});
+/* FULLSCREEN */
+
+
+// function fullscreen() {
+//   let fullscreen = document.getElementById("canvas");
+//   enterFullscreen(fullscreen);
+// }
+
+// function enterFullscreen(element) {
+//   if (element.requestFullscreen) {
+//     element.requestFullscreen();
+//   } else if (element.msRequestFullscreen) {
+//     element.msRequestFullscreen();
+//   } else if (element.webkitRequestFullscreen) {
+//     element.webkitRequestFullscreen();
+//   }
+// }

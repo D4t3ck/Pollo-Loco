@@ -36,25 +36,41 @@
         <canvas class="d_none" id="canvas" width="1280" height="720"> </canvas>
 
         <!--STARTSCREEN-->
-        <div class="start_Screen_Container" id="startScreenContainer">
+        <div class="start_screen_container d_none" id="startScreenContainer">
           <img
             src="./img/9_intro_outro_screens/start/startscreen_2.png"
             id="startScreen"
           />
           <div class="btn_container">
-
             <button class="start_Button">START</button>
 
             <button class="controls_Button">CONTROLS</button>
 
             <img
-              class="toggleFullscreenBtn"
+              id="fullscreenOn"
+              class="toggle_Fullscreen"
               src="./img/fullscreen_50x50.png"
               alt="Fullscreen On"
-              onclick="fullscreen()"
+              onclick="toggleFullscreen()"
+              style="display: none"
+            />
+
+            
+            <img
+              id="fullscreenOff"
+              class="toggle_Fullscreen"
+              src="./img/fullscreen_off_50x50.png"
+              alt="Fullscreen Off"
+              onclick="toggleFullscreen()"
             />
           </div>
         </div>
+      </div>
+
+      <!-- CONTROLS -->
+      
+      <!-- CONTROLS -->
+
         <!--STARTSCREEN-->
 
         <!-- MENU -->
@@ -97,7 +113,6 @@
             
         </div> -->
         <!-- MENU -->
-      </div>
       <!-- WRAPPER -->
     </main>
     <script src="./js/script.js"></script>
