@@ -13,10 +13,31 @@
     <main>
       <h1>El Pollo Loco</h1>
       <div>
-        <button id="startButton" onclick="redirect()" class="light">
+        <button class="start_btn" id="startButton" onclick="redirect()">
           ¡Vamos!
         </button>
       </div>
+
+      <footer class="footer">
+        <div class="btn_container">
+          <button onclick="openStory()" class="story_btn">Story</button>
+          <button onclick="openImpress()" class="impress_btn">Impress</button>
+          <button onclick="openPrivacyPolicy()" class="privacy_policy_btn">
+            Privacy Policy
+          </button>
+        </div>
+
+        <div onclick="closeStory()" class="story" id="storyContainer">
+          <div onclick="doNotClose(event)" class="story_content">
+            <h2>Story</h2>
+            <span>Welcome to Mexico amigo!</span>
+          </div>
+        </div>
+        <div class="impress" id="impressContainer"></div>
+        <div class="privacyPolicy" id="privacyPolicyContainer"></div>
+      </footer>
     </main>
   </body>
 </html>
+
+

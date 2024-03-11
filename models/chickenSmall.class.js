@@ -24,13 +24,13 @@ class ChickenSmall extends MovableObject {
     super().loadImage(this.IMAGES_WALKING[0]);
     this.loadImages(this.IMAGES_WALKING);
     this.x = x + Math.random() * 500;
-    this.speed = 0.4 + Math.random() * 0.5;
+    this.speed = 0.4 + Math.random() * 1;
     this.animateSmallChicken();
   }
 
   animateSmallChicken() {
     this.moveChickenInterval = setInterval(() => {
-      // this.moveLeft();
+       this.moveLeft();
     }, 1000 / 30);
 
     this.animateChickenInterval = setInterval(() => {

@@ -1,7 +1,7 @@
 function playBackgroundMusic() {
   setTimeout(() => {
     let backgroundMusic = world.AUDIO.background_music;
-    backgroundMusic.volume = 0.6;
+    backgroundMusic.volume = 0.3;
     backgroundMusic.play();
   }, 1000);
 }
@@ -80,6 +80,64 @@ function closeControls() {
 }
 /* CONTROLS */
 
+function startGame() {
+  document.getElementById("canvas").classList.remove("d_none");
+  document.getElementById("startScreenContainer").classList.add("d_none");
+  document.getElementById("menu").classList.remove("d_none");
+  initGame();
+}
+
+function restartGame() {
+  location.reload();
+}
+
+function gameWin() {
+  setTimeout(() => {
+		clearIntervalIds();
+		// showWinScreen();
+		playWinSound();
+		resetMusic();
+	}, 2000);
+}
+
+function gameOver() {
+	setTimeout(() => {
+		clearIntervalIds();
+		// showGameOverScreen();
+		playOverSound();
+		resetMusic();
+	}, 1000);
+}
+
+function playWinSound() {
+	world.AUDIO.game_win.play();
+}
+
+function playOverSound() {
+	world.AUDIO.game_over.play();
+}
+
+function resetMusic() {
+	world.AUDIO.background_music.currentTime = 0;
+	world.AUDIO.endboss_fight.currentTime = 0;
+	world.AUDIO.background_music.pause();
+	// world.AUDIO.endboss_fight.pause();
+	world.character.stopSnoring();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -109,19 +167,3 @@ document.addEventListener("fullscreenchange", function () {
     fullscreenOffImg.style.display = "inline";
   }
 });
-/* FULLSCREEN */
-
-// function fullscreen() {
-//   let fullscreen = document.getElementById("canvas");
-//   enterFullscreen(fullscreen);
-// }
-
-// function enterFullscreen(element) {
-//   if (element.requestFullscreen) {
-//     element.requestFullscreen();
-//   } else if (element.msRequestFullscreen) {
-//     element.msRequestFullscreen();
-//   } else if (element.webkitRequestFullscreen) {
-//     element.webkitRequestFullscreen();
-//   }
-// }

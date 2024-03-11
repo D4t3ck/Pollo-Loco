@@ -61,74 +61,72 @@ canvas {
   left: 2rem;
   display: flex;
   gap: 1rem;
-  z-index: 5;
+  padding: 0.5rem;
+  background-color: #a0220a;
+  border: 1px solid whitesmoke;
+  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  z-index: 100;
 }
 .start_screen_container .start_Button {
   width: 100%;
   padding: 0.5rem;
-  font-family: "zabras", system-ui, sans-serif;
+  font-family: "zabras", sans-serif;
   font-size: 1.25rem;
   color: black;
   background-color: rgb(250, 165, 0);
   border: unset;
   border-radius: 5px;
   box-shadow: -1px 1px 5px 0px #000;
+}
+.start_screen_container .start_Button:hover {
   cursor: pointer;
+  background-color: rgb(253, 183, 44);
 }
 .start_screen_container .controls_Button {
   width: 100%;
   padding: 0.5rem;
-  font-family: "zabras", system-ui, sans-serif;
+  font-family: "zabras", sans-serif;
   font-size: 1.25rem;
   color: black;
   background-color: rgb(250, 165, 0);
   border: unset;
   border-radius: 5px;
   box-shadow: -1px 1px 5px 0px #000;
+}
+.start_screen_container .controls_Button:hover {
   cursor: pointer;
-}
-.start_screen_container .toggle_Fullscreen {
-  border: 2px solid black;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.start_screen_container .toggle_Fullscreen #canvas:-webkit-full-screen {
-  width: 100%;
-  height: 100%;
-}
-.start_screen_container .toggle_Fullscreen #canvas:fullscreen {
-  width: 100%;
-  height: 100%;
+  background-color: rgb(253, 183, 44);
 }
 
 /* STARTSCREEN */
 /* CONTROLS */
-.controls {
+.controls_container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, hsl(44, 100%, 68%) 0%, hsl(40, 100%, 68%) 100%);
   font-family: system-ui, sans-serif;
   font-size: 2rem;
+  background: radial-gradient(circle, hsl(38, 59%, 78%) 0%, hsl(38, 31%, 65%) 81%);
 }
-.controls .controls_head {
+.controls_container .controls_head {
   display: flex;
   justify-content: center;
   gap: a;
   width: 100%;
   font-size: 1.5rem;
 }
-.controls .controls_head h2 {
-  font-family: "zabras", system-ui, sans-serif;
+.controls_container .controls_head h2 {
+  font-family: "zabras", sans-serif;
   font-size: 4rem;
   letter-spacing: 3px;
   margin-bottom: 4rem;
   text-align: center;
 }
-.controls .controls_head img {
+.controls_container .controls_head img {
   position: absolute;
   right: 40px;
   top: 20px;
@@ -136,7 +134,7 @@ canvas {
   height: 40px;
   cursor: pointer;
 }
-.controls .controls_table {
+.controls_container .controls_table {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -145,54 +143,73 @@ canvas {
   max-width: 500px;
   border-spacing: 0 15px;
 }
-.controls .info {
+.controls_container .info {
   padding-left: 10rem;
 }
 
 /* CONTROLS */
+/* WIN_SCREEN */
+.win_Screen_container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.82);
+}
+.win_Screen_container img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.win_Screen_container h2 {
+  position: absolute;
+  font-size: 60px;
+  margin: 0 0 50px;
+  top: 35px;
+  right: 0;
+  left: 0;
+  color: #ffcc00;
+  text-shadow: 2px 2px 8px rgb(0, 0, 0);
+}
+
+/* WIN_SCREEN */
 /* MENU */
 .menu_container {
   position: absolute;
-  bottom: 85%;
+  top: 1rem;
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem;
+  background-color: #a0220a;
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.5);
   z-index: 100;
 }
-.menu_container .menu {
-  border: 2px solid orange;
-  border-radius: 10px;
-  display: flex;
-  height: 100%;
-  min-width: 100%;
-  padding: 0.5rem;
-  gap: 2rem;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-}
-.menu_container .menu div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: system-ui, sans-serif;
+.menu_container .restart_btn,
+.menu_container .sound_btn,
+.menu_container .fullscreen_btn {
   width: 100%;
-  height: 100%;
   padding: 0.5rem;
-  border: 3px solid orange;
-  background-color: whitesmoke;
-  border-radius: 50px;
+  font-family: "zabras", sans-serif;
+  font-size: 1.25rem;
+  color: black;
+  background-color: rgb(250, 165, 0);
+  border: unset;
+  border-radius: 5px;
+  box-shadow: -1px 1px 5px 0px #000;
 }
-.menu_container .menu div .menu_btn {
-  width: 100%;
-  height: 100%;
+.menu_container .restart_btn img,
+.menu_container .sound_btn img,
+.menu_container .fullscreen_btn img {
+  width: 1.5rem;
+  height: 1.5rem;
 }
-.menu_container .menu div .menu_btn img {
-  width: 3rem;
-  height: 3rem;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-}
-.menu_container .menu div :hover {
+.menu_container .restart_btn:hover,
+.menu_container .sound_btn:hover,
+.menu_container .fullscreen_btn:hover {
   cursor: pointer;
+  background-color: rgb(253, 183, 44);
 }
 
 /* MENU */

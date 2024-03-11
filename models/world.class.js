@@ -13,7 +13,7 @@ class World {
   collectedBottles = 0;
 
   AUDIO = {
-    index_background: new Audio("./audio/indexBackground.mp3"),
+    
     background_music: new Audio("./audio/backgroundMusic.mp3"),
     walking_sound: new Audio("./audio/walking.mp3"),
     jumping_sound: new Audio("./audio/jump.mp3"),
@@ -28,7 +28,7 @@ class World {
     chicken_dead: new Audio("./audio/chickenDead.mp3"),
     endboss_fight: new Audio("./audio/endboss_fight.mp3"),
     game_over: new Audio("./audio/game_over.mp3"),
-    game_win: new Audio("./audio/win.mp3"),
+    game_win: new Audio("./audio/game_win.mp3"),
   };
 
   constructor(canvas, keyboard) {
@@ -133,19 +133,18 @@ class World {
 
   //////////////////////////////////
 
- checkCollisionsEndboss() {
-  this.level.endboss.forEach((endboss) => {
-    if (
-      this.character.isColliding(endboss) &&
-      !this.character.isHurt() &&
-      !endboss.isDead()
-    ) {
-      this.character.hit();
-      this.statusBarLife.setPercentage(this.character.energy);
-    }
-  });
-}
-
+  checkCollisionsEndboss() {
+    this.level.endboss.forEach((endboss) => {
+      if (
+        this.character.isColliding(endboss) &&
+        !this.character.isHurt() &&
+        !endboss.isDead()
+      ) {
+        this.character.hit();
+        this.statusBarLife.setPercentage(this.character.energy);
+      }
+    });
+  }
 
   //////////////////////////////////////////////////////////////
 
@@ -174,7 +173,6 @@ class World {
 
   checkCollisionsWithThrowingBottle() {
     setStoppableInterval(() => {
-      this.killChickenWithBottle();
       this.hurtEndboss();
     }, 200);
   }
@@ -190,19 +188,6 @@ class World {
           this.AUDIO.bottle_smash.play();
           this.AUDIO.chicken_splat.play();
           this.AUDIO.chicken_dead.play();
-          setTimeout(() => {
-            this.eraseThrowingBottleFromArray(bottle);
-          }, 180);
-        }
-      });
-    });
-  }
-
-  killChickenWithBottle() {
-    this.throwableObject.forEach((bottle) => {
-      this.level.enemies.forEach((enemy) => {
-        if (bottle.isColliding(enemy)) {
-          this.killChicken(enemy, false);
           setTimeout(() => {
             this.eraseThrowingBottleFromArray(bottle);
           }, 180);

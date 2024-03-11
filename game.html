@@ -29,23 +29,19 @@
     <script src="./levels/level1.js"></script>
     <script src="./js/game.js"></script>
   </head>
-  <body onload="init()">
+  <body>
     <main id="main_container" class="main_container">
       <!-- WRAPPER -->
-      <div class="wrapper">
+      <div class="wrapper" id="wrapper">
         <canvas class="d_none" id="canvas" width="1280" height="720"> </canvas>
 
-        <!--STARTSCREEN-->
-        <div class="start_screen_container" id="startScreenContainer">
-          <img
-            src="./img/9_intro_outro_screens/start/startscreen_2.png"
-            id="startScreen"
-          />
-          <div class="btn_container">
-            <button class="start_Button">START</button>
+        <!-- MENU -->
+        <div class="menu_container d_none" id="menu">
+          <button onclick="restartGame()" class="restart_btn">
+            <img src="img/restart_50x50.png" alt="Restart" />
+          </button>
 
-            <button onclick="openControls()" class="controls_Button">CONTROLS</button>
-
+          <button class="fullscreen_btn">
             <img
               id="fullscreenOn"
               class="toggle_Fullscreen"
@@ -62,15 +58,52 @@
               alt="Fullscreen Off"
               onclick="toggleFullscreen()"
             />
+          </button>
+
+          <button class="sound_btn">
+            <img
+              onclick="turnSoundOff('soundOffIcon', 'soundOnIcon', 'd_none')"
+              id="soundOffIcon"
+              class="audioOffIcon d_none"
+              src="./img/sound_off_50x50.png"
+              alt="Sound Off"
+            />
+            <img
+              onclick="turnSoundOn('soundOffIcon', 'soundOnIcon', 'd_none')"
+              id="soundOnIcon"
+              class="audioOnIcon"
+              src="./img/sound_on_50x50.png"
+              alt="Sound On"
+            />
+          </button>
+        </div>
+        <!-- MENU -->
+
+        <!--START_SCREEN-->
+        <div class="start_screen_container" id="startScreenContainer">
+          <img
+            src="./img/9_intro_outro_screens/start/startscreen_2.png"
+            id="startScreen"
+          />
+          <div class="btn_container">
+            <button onclick="startGame()" class="start_Button">START</button>
+
+            <button onclick="openControls()" class="controls_Button">
+              CONTROLS
+            </button>
+
           </div>
         </div>
 
         <!-- CONTROLS -->
-        <div class="controls d_none" id="controls">
-
+        <div class="controls_container d_none" id="controls">
           <div class="controls_head">
             <h2>Controls</h2>
-            <img onclick="closeControls()" src="./img/controls/back.png" alt="" />
+            <img
+              onclick="closeControls()"
+              src="./img/controls/back.png"
+              alt=""
+            />
           </div>
 
           <table class="controls_table">
@@ -100,50 +133,15 @@
           </table>
         </div>
         <!-- CONTROLS -->
+
+        <!-- WIN_SCREEN -->
+        <div class="win_Screen_container d_none" id="winScreen">
+          <h2>You win!</h2>
+          <img src="./img/laurel-wreath-150577_1280.png" alt="" />
+        </div>
+        <!-- WIN_SCREEN -->
       </div>
-
-      <!--STARTSCREEN-->
-
-      <!-- MENU -->
-      <!-- <div id="menuContainer" class="menu_container">
-          <div id="menu" class="menu">
-            <div class="menu_btn">
-              <img
-                id="info"
-                class="menu_img"
-                src="./img/info_50x50.png"
-                alt="Steuerung"
-              />
-            </div>
-            <div class="menu_btn">
-              <img
-                onclick="fullscreen()"
-                id="fullscreen"
-                class="menu_img"
-                src="./img/fullscreen_50x50.png"
-                alt="Fullscreen"
-              />
-            </div>
-            <div class="menu_btn">
-              <img
-                onclick="turnSoundOff('soundOffIcon', 'soundOnIcon', 'd_none')"
-                id="soundOffIcon"
-                class="audioOffIcon d_none"
-                src="./img/sound_off_50x50.png"
-                alt="Sound Off"
-              />
-              <img
-                onclick="turnSoundOn('soundOffIcon', 'soundOnIcon', 'd_none')"
-                id="soundOnIcon"
-                class="audioOnIcon"
-                src="./img/sound_on_50x50.png"
-                alt="Sound On"
-              />
-            </div>
-            
-            
-        </div> -->
-      <!-- MENU -->
+      <!--START_SCREEN-->
       <!-- WRAPPER -->
     </main>
     <script src="./js/script.js"></script>

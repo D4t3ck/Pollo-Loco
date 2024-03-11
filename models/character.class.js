@@ -194,9 +194,8 @@ class Character extends MovableObject {
   }
 
   deathAnimation() {
-    // gameIsLost();
+    gameOver();
     this.playAnimation(this.IMAGES_DEAD);
-    this.walking_sound.pause();
     world.AUDIO.dead_sound.play();
     this.stopSnoring();
   }
@@ -205,7 +204,6 @@ class Character extends MovableObject {
     this.playAnimation(this.IMAGES_HURT);
     world.AUDIO.hurt_sound.play();
     this.stopSnoring();
-    soundPlayed = true;
   }
 
   stopSnoring() {

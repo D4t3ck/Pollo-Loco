@@ -4,7 +4,7 @@ let keyboard = new Keyboard();
 i = 1;
 intervalIds = [];
 
-function init() {
+function initGame() {
   initLevel();
   playBackgroundMusic();
   canvas = document.getElementById("canvas");
@@ -21,3 +21,4 @@ function clearIntervalIds() {
   intervalIds.forEach(clearInterval);
   intervalIds = [];
 }
+
