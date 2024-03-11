@@ -102,6 +102,34 @@ canvas {
 }
 
 /* STARTSCREEN */
+/* CONTROLS */
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 201, 93);
+  font-family: system-ui, sans-serif;
+  font-size: 2rem;
+}
+.controls .controls_head {
+  display: flex;
+  justify-content: center;
+  gap: a;
+  width: 100%;
+  font-size: 1.5rem;
+}
+.controls .controls_head img {
+  position: absolute;
+  right: 40px;
+  top: 20px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+/* CONTROLS */
 /* MENU */
 .menu_container {
   position: absolute;
