@@ -63,13 +63,3 @@ class ThrowableObject extends MovableObject {
     }, 1000 / 10);
   }
 }
-
-// animateBottle() {
-//   setStopableInterval(() => {
-//     if (world.level.endboss[0].isHurtEndboss()) {
-//       this.playAnimation(this.IMAGES_BOTTLE_SPLASH);
-//     } else {
-//       this.playAnimation(this.IMAGES_BOTTLE_ROTATION);
-//     }
-//   }, 1000 / 25);
-// }

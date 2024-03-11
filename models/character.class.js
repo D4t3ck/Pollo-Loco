@@ -4,7 +4,7 @@ class Character extends MovableObject {
 
   height = 400;
   width = 300;
-  speed = 10;
+  speed = 8.5;
   characterLastMovement = 0;
   isWalking = false;
   isSnoring = false;
@@ -197,6 +197,7 @@ class Character extends MovableObject {
     gameOver();
     this.playAnimation(this.IMAGES_DEAD);
     world.AUDIO.dead_sound.play();
+    this.stopWalkingSound();
     this.stopSnoring();
   }
 

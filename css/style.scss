@@ -26,6 +26,7 @@ body {
   background-size: cover;
   overflow: hidden;
   box-sizing: border-box;
+  user-select: none;
 }
 
 .main_container {
@@ -309,13 +310,19 @@ canvas {
 //////// RESPONSIVE //////////
 
 @media only screen and (max-width: 1300px) {
-  .wrapper {
+
+  .main_container {
     width: 100%;
   }
 
-  canvas {
+  .wrapper {
     width: 100%;
-    height: 100%;
+    height: unset;
+  }
+
+  canvas {
+    height: 100vh;
+    
   }
 }
 

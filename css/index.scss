@@ -24,6 +24,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  user-select: none;
 }
 
 main {
@@ -153,6 +154,7 @@ main {
   display: flex;
   padding-top: 5rem;
   margin-bottom: 3rem;
+  font-family: $systemFont;
 
   .btn_container {
     display: flex;
@@ -218,6 +220,110 @@ main {
         display: block;
         margin-bottom: 10px;
         line-height: 1.5;
+      }
+    }
+  }
+
+  .impress {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+
+    .impress_content {
+      display: flex;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      flex-direction: column;
+      height: 50vh;
+      width: 50vw;
+      padding: 1rem;
+      border: 3px solid black;
+      border-radius: 10px;
+      transform: translate(-50%, -50%);
+      user-select: none;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      background: radial-gradient(
+        circle,
+        hsla(38, 59%, 78%, 1) 0%,
+        hsla(38, 31%, 65%, 1) 81%
+      );
+
+      h2 {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        margin-bottom: 1rem;
+        line-height: 1.5;
+        color: #333;
+      }
+
+      a {
+        color: #007bff;
+        text-decoration: underline;
+        word-break: break-all;
+        font-size: smaller;
+      }
+    }
+  }
+
+  .privacyPolicy {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
+
+    .privacy_policy_content {
+      display: flex;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      flex-direction: column;
+      height: 50vh;
+      width: 50vw;
+      padding: 1rem;
+      border: 3px solid black;
+      border-radius: 10px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(
+        circle,
+        hsla(38, 59%, 78%, 1) 0%,
+        hsla(38, 31%, 65%, 1) 81%
+      );
+
+      h2 {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        margin-bottom: 1rem;
+        color: #333;
+      }
+
+      a {
+        color: #007bff;
+        text-decoration: underline;
+        word-break: break-all;
+        font-size: smaller;
       }
     }
   }

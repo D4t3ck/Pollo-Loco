@@ -4,7 +4,7 @@ class Endboss extends MovableObject {
   width = 500;
   height = 600;
   speed = 15;
-  speedThroughHit = 50;
+  speedThroughHit = 100;
   firstContact = false;
 
   offset = {
@@ -114,7 +114,7 @@ class Endboss extends MovableObject {
   }
 
   endbossReached() {
-    if (world.character.x > 3100) {
+    if (world.character.x > 3400) {
       world.AUDIO.endboss_fight.play();
       world.AUDIO.background_music.volume = 0.1;
       this.hadFirstContact = true;
