@@ -44,6 +44,12 @@ class Endboss extends MovableObject {
     "./img/4_enemie_boss_chicken/5_dead/G26.png",
   ];
 
+  /**
+   * Constructs an instance of the character.
+   * Loads initial images for walking, alert, hurt, and dead states.
+   * Initiates the animation for the endboss when reached.
+   * @constructor
+   */
   constructor() {
     super().loadImage(this.IMAGES_WALKING[0]);
     this.loadImages(this.IMAGES_WALKING);
@@ -53,6 +59,10 @@ class Endboss extends MovableObject {
     this.animateEnbossOnReach();
   }
 
+  /**
+   * Initiates the animation for the endboss when reached.
+   * The animation includes checking for first contact and then animating the endboss accordingly.
+   */
   animateEnbossOnReach() {
     setStoppableInterval(() => {
       this.endbossReached();
@@ -62,28 +72,41 @@ class Endboss extends MovableObject {
     }, 120);
   }
 
-    animateEndboss() {
-  if (this.isDead()) {
-    this.dead();
-  } else if (!this.isHurt() && this.endbossFightBegins()) {
-    if (!this.endbossInReach()) {
-      this.movingLeft();
+  /**
+   * Animates the endboss based on its current state.
+   * If the character is dead, it performs the dead animation.
+   * If the character is hurt, it performs the hurt animation.
+   * If the character is not hurt and the endboss fight begins,
+   * it checks if the endboss is in reach and sets the character's movement accordingly.
+   * Otherwise, it sets the character in an alert state.
+   */
+  animateEndboss() {
+    if (this.isDead()) {
+      this.dead();
+    } else if (!this.isHurt() && this.endbossFightBegins()) {
+      if (!this.endbossInReach()) {
+        this.movingLeft();
+      } else {
+        this.movingRight();
+      }
+    } else if (this.isHurt()) {
+      this.hurt();
     } else {
-      this.movingRight();
+      this.alert();
     }
-  } else if (this.isHurt()) {
-    this.hurt();
-  } else {
-    this.alert();
   }
-}
 
-
+  /**
+   * Plays the dead animation and triggers the game win.
+   */
   dead() {
     this.playAnimation(this.IMAGES_DEAD);
     gameWin();
   }
 
+  /**
+   * Moves the character left after a delay, triggering the walking animation.
+   */
   movingLeft() {
     setTimeout(() => {
       super.moveLeft();
@@ -92,6 +115,9 @@ class Endboss extends MovableObject {
     }, 500);
   }
 
+  /**
+   * Moves the character right after a delay, triggering the walking animation.
+   */
   movingRight() {
     setTimeout(() => {
       super.moveRight();
@@ -100,19 +126,32 @@ class Endboss extends MovableObject {
     }, 500);
   }
 
+  /**
+   * Triggers the alert animation.
+   */
   alert() {
     this.playAnimation(this.IMAGES_ALERT);
   }
 
+  /**
+   * Plays the hurt animation and makes the end boss rush forward.
+   */
   hurt() {
     this.playAnimation(this.IMAGES_HURT);
     this.endbossRushForward();
   }
 
+  /**
+   * Checks if the end boss is in reach of the character.
+   * @returns {boolean} True if the end boss is in reach, otherwise false.
+   */
   endbossInReach() {
     return world.level.endboss[0].x < world.character.x - 100;
   }
 
+  /**
+   * Checks if the character has reached the end boss's position.
+   */
   endbossReached() {
     if (world.character.x > 3400) {
       world.AUDIO.endboss_fight.play();
@@ -121,10 +160,17 @@ class Endboss extends MovableObject {
     }
   }
 
+  /**
+   * Checks if the end boss fight is about to begin.
+   * @returns {boolean} True if the end boss fight is about to begin, otherwise false.
+   */
   endbossFightBegins() {
     return world.character.x > world.level.endboss[0].x - 800;
   }
 
+  /**
+   * Makes the end boss rush forward towards the character's direction.
+   */
   endbossRushForward() {
     if (!this.otherDirection) {
       world.level.endboss[0].x -= this.speedThroughHit;

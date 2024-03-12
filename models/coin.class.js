@@ -11,6 +11,10 @@ class Coin extends MovableObject {
 
   IMAGES_COIN = ["img/8_coin/coin_1.png", "img/8_coin/coin_2.png"];
 
+  /**
+   * Creates a new instance of a Coin object.
+   * @param {number} x - The initial x-coordinate of the coin.
+   */
   constructor(x) {
     super().loadImage(this.IMAGES_COIN[0]);
     this.loadImages(this.IMAGES_COIN);
@@ -19,9 +23,12 @@ class Coin extends MovableObject {
     this.animateCoins();
   }
 
+  /**
+   * Initiates the animation for the coin object.
+   */
   animateCoins() {
     setInterval(() => {
-        this.playAnimation(this.IMAGES_COIN);
+      this.playAnimation(this.IMAGES_COIN);
     }, 350);
-}
+  }
 }

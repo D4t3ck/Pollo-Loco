@@ -13,7 +13,6 @@ class World {
   collectedBottles = 0;
 
   AUDIO = {
-    
     background_music: new Audio("./audio/backgroundMusic.mp3"),
     walking_sound: new Audio("./audio/walking.mp3"),
     jumping_sound: new Audio("./audio/jump.mp3"),
@@ -31,6 +30,11 @@ class World {
     game_win: new Audio("./audio/game_win.mp3"),
   };
 
+  /**
+   * Constructs a new instance of the game engine.
+   * @param {HTMLCanvasElement} canvas - The canvas element on which the game is rendered.
+   * @param {Keyboard} keyboard - The keyboard controller used for player input.
+   */
   constructor(canvas, keyboard) {
     this.ctx = canvas.getContext("2d");
     this.canvas = canvas;
@@ -42,10 +46,16 @@ class World {
     this.checkCollisionsWithThrowingBottle();
   }
 
+  /**
+   * Sets up the game world by assigning the world reference to the character.
+   */
   setWorld() {
     this.character.world = this;
   }
 
+  /**
+   * Periodically checks for collisions between game objects.
+   */
   checkCollisions() {
     setStoppableInterval(() => {
       this.checkCollisionsEnemy();
@@ -55,8 +65,10 @@ class World {
     }, 1000 / 30);
   }
 
-  //////////////////////////////////////////////////////////////
-
+  /**
+   * Checks collisions between the character and enemies.
+   * If a collision occurs and the character is not hurt, either the enemy is killed or the character is hurt depending on the character's position.
+   */
   checkCollisionsEnemy() {
     this.level.enemies.forEach((enemy) => {
       if (this.character.isColliding(enemy) && !this.character.isHurt()) {
@@ -70,6 +82,11 @@ class World {
     });
   }
 
+  /**
+   * Kills a chicken enemy.
+   * @param {Enemy} enemy - The chicken enemy to be killed.
+   * @param {boolean} [performJump=true] - Whether to make the character jump after killing the chicken (optional, defaults to true).
+   */
   killChicken(enemy, performJump = true) {
     this.AUDIO.chicken_splat.currentTime = 0;
     enemy.isDead();
@@ -85,15 +102,19 @@ class World {
     }, 550);
   }
 
+  /**
+   * Removes an enemy from the enemies array.
+   * @param {Enemy} enemy - The enemy object to be removed.
+   */
   eraseEnemyFromArray(enemy) {
     let i = this.level.enemies.indexOf(enemy);
     this.level.enemies.splice(i, 1);
   }
 
-  //////////////////////////////////
-
-  //////////////////////////////////
-
+  /**
+   * Checks collisions between the character and bottles.
+   * If a collision occurs, the bottle is collected, and the character's progress bar for bottles is raised.
+   */
   checkCollisonsBottles() {
     this.level.bottles.forEach((bottle) => {
       if (this.character.isColliding(bottle)) {
@@ -106,14 +127,20 @@ class World {
     });
   }
 
+  /**
+   * Handles the collection of a bottle by removing it from the bottles array and updating collected bottle count.
+   * @param {Bottle} bottle - The bottle object that has been collected.
+   */
   bottleCollected(bottle) {
     let i = this.level.bottles.indexOf(bottle);
     this.level.bottles.splice(i, 1);
     this.collectedBottles++;
   }
 
-  //////////////////////////////////
-
+  /**
+   * Checks collisions between the character and coins.
+   * If a collision occurs, the coin is collected, and the character's progress bar for coins is raised.
+   */
   checkCollisionCoins() {
     this.level.coins.forEach((coin) => {
       if (this.character.isColliding(coin)) {
@@ -126,13 +153,19 @@ class World {
     });
   }
 
+  /**
+   * Handles the collection of a coin by removing it from the coins array.
+   * @param {Coin} coin - The coin object that has been collected.
+   */
   coinCollected(coin) {
     let i = this.level.coins.indexOf(coin);
     this.level.coins.splice(i, 1);
   }
 
-  //////////////////////////////////
-
+  /**
+   * Checks collisions between the character and the end boss.
+   * If a collision occurs and the character is not hurt and the end boss is not dead, the character is hurt.
+   */
   checkCollisionsEndboss() {
     this.level.endboss.forEach((endboss) => {
       if (
@@ -146,14 +179,18 @@ class World {
     });
   }
 
-  //////////////////////////////////////////////////////////////
-
+  /**
+   * Initiates an interval for checking if throwable objects can be thrown.
+   */
   throwInterval() {
     setStoppableInterval(() => {
       this.checkThrowObjects();
     }, 200);
   }
 
+  /**
+   * Checks if throwable objects can be thrown and creates a new throwable object if conditions are met.
+   */
   checkThrowObjects() {
     if (this.canBottleBeThrown()) {
       let bottle = new ThrowableObject(
@@ -169,12 +206,18 @@ class World {
     }
   }
 
+  /**
+   * Initiates an interval for checking collisions between throwing objects and the end boss.
+   */
   checkCollisionsWithThrowingBottle() {
     setStoppableInterval(() => {
       this.hurtEndboss();
     }, 200);
   }
 
+  /**
+   * Checks for collisions between throwing objects and the end boss, causing damage to the end boss if a collision occurs.
+   */
   hurtEndboss() {
     this.throwableObject.forEach((bottle) => {
       this.level.endboss.forEach((endboss) => {
@@ -194,17 +237,26 @@ class World {
     });
   }
 
+  /**
+   * Checks if the character can throw a bottle.
+   * @returns {boolean} True if the character can throw a bottle, otherwise false.
+   */
   canBottleBeThrown() {
     return this.keyboard.F && this.collectedBottles > 0;
   }
 
+  /**
+   * Removes a throwing bottle from the throwing object array.
+   * @param {ThrowableObject} bottle - The throwing bottle object to be removed.
+   */
   eraseThrowingBottleFromArray(bottle) {
     let i = this.throwableObject.indexOf(bottle);
     this.throwableObject.splice(i, 1);
   }
 
-  //////////////////////////////////////////////////////////////
-
+  /**
+   * Draws the game scene on the canvas.
+   */
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.ctx.translate(this.camera_x, 0);
@@ -219,11 +271,17 @@ class World {
     });
   }
 
+  /**
+   * Adds background graphics to the game scene.
+   */
   addBackgroundGraphics() {
     this.addObjectsToMap(this.level.backgroundObjects);
     this.addObjectsToMap(this.level.clouds);
   }
 
+  /**
+   * Adds movable objects (such as bottles, coins, enemies, etc.) to the game scene.
+   */
   addMovableObjects() {
     this.addObjectsToMap(this.level.bottles);
     this.addObjectsToMap(this.level.coins);
@@ -233,6 +291,9 @@ class World {
     this.addToMap(this.character);
   }
 
+  /**
+   * Adds status bars (such as life, bottle, coin, end boss) to the game scene.
+   */
   addStatusBars() {
     this.addToMap(this.statusBarLife);
     this.addToMap(this.statusBarBottle);
@@ -240,16 +301,20 @@ class World {
     this.addToMap(this.statusBarEndboss);
   }
 
+  /**
+   * Adds an array of objects to the game scene.
+   * @param {GameObject[]} objects - An array of GameObjects to be added to the scene.
+   */
   addObjectsToMap(objects) {
     objects.forEach((o) => {
       this.addToMap(o);
     });
   }
 
-  //////////////////////////////////////////////////////////////
-
-  //////////////////////////////////////////////////////////////
-
+  /**
+   * Adds a movable object to the game scene, taking into account its direction.
+   * @param {GameObject} mo - The movable object to be added to the scene.
+   */
   addToMap(mo) {
     if (mo.otherDirection) {
       this.flipImage(mo);
@@ -262,6 +327,10 @@ class World {
     }
   }
 
+  /**
+   * Flips the image horizontally for the given movable object.
+   * @param {GameObject} mo - The movable object whose image is to be flipped.
+   */
   flipImage(mo) {
     this.ctx.save();
     this.ctx.translate(mo.width, 0);
@@ -269,10 +338,12 @@ class World {
     mo.x = mo.x * -1;
   }
 
+  /**
+   * Reverts the image back to its original orientation after flipping.
+   * @param {GameObject} mo - The movable object whose image is to be reverted.
+   */
   flipImageBack(mo) {
     mo.x = mo.x * -1;
     this.ctx.restore();
   }
 }
-
-//////////////////////////////////////////////////////////////

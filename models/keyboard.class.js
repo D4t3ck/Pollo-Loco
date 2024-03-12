@@ -11,6 +11,10 @@ class Keyboard {
     this.keyboardControls();
   }
 
+  /**
+   * Sets up event listeners for keyboard controls.
+   * Tracks keydown and keyup events to update the keyboard state accordingly.
+   */
   keyboardControls() {
     window.addEventListener("keydown", (e) => {
       if (e.key === "ArrowRight" || e.key === "d") {
@@ -31,7 +35,6 @@ class Keyboard {
       if (e.key === " " || e.key === " ") {
         keyboard.SPACE = true;
       }
-      /* console.log(e); */
     });
 
     window.addEventListener("keyup", (e) => {

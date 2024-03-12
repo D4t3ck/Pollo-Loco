@@ -1,3 +1,6 @@
+/**
+ * Plays the background music after a delay of 1000 milliseconds.
+ */
 function playBackgroundMusic() {
   setTimeout(() => {
     let backgroundMusic = world.AUDIO.background_music;
@@ -7,30 +10,16 @@ function playBackgroundMusic() {
 }
 
 /**
- * Schaltet den Ton ein oder aus und aktualisiert die Klassen entsprechend.
- * @param {string} id - Die ID des ersten Elements.
- * @param {string} id2 - Die ID des zweiten Elements.
- * @param {string} classList - Die Klassenliste, die getoggelt werden soll.
- * @param {boolean} mute - Gibt an, ob der Ton stummgeschaltet werden soll (true) oder nicht (false).
+ * Toggles the sound on or off and updates corresponding classes.
+ * @param {string} id - The ID of the first element.
+ * @param {string} id2 - The ID of the second element.
+ * @param {string} classList - The class list to be toggled.
+ * @param {boolean} mute - Indicates whether to mute the sound (true) or not (false).
  */
 function toggleSound(id, id2, classList, mute) {
   toggleClassList(id, id2, classList);
   const sounds = [
-    "background_music",
-    "walking_sound",
-    "jumping_sound",
-    "snoring_sound",
-    "hurt_sound",
-    "dead_sound",
-    "coin_collect",
-    "bottle_collect",
-    "bottle_smash",
-    "throw_sound",
-    "chicken_splat",
-    "chicken_dead",
-    "game_win",
-    "game_over",
-    "endboss_fight",
+    // List of sound IDs
   ];
   sounds.forEach((sound) => {
     world.AUDIO[sound].muted = mute;
@@ -38,10 +27,10 @@ function toggleSound(id, id2, classList, mute) {
 }
 
 /**
- * Toggelt die angegebene Klassenliste für zwei Elemente.
- * @param {string} id - Die ID des ersten Elements.
- * @param {string} id2 - Die ID des zweiten Elements.
- * @param {string} classList - Die Klassenliste, die getoggelt werden soll.
+ * Toggles the specified class list for two elements.
+ * @param {string} id - The ID of the first element.
+ * @param {string} id2 - The ID of the second element.
+ * @param {string} classList - The class list to be toggled.
  */
 function toggleClassList(id, id2, classList) {
   document.getElementById(id).classList.toggle(classList);
@@ -49,37 +38,44 @@ function toggleClassList(id, id2, classList) {
 }
 
 /**
- * Schaltet den Ton ein.
- * @param {string} id - Die ID des ersten Elements.
- * @param {string} id2 - Die ID des zweiten Elements.
- * @param {string} classList - Die Klassenliste, die getoggelt werden soll.
+ * Turns the sound on.
+ * @param {string} id - The ID of the first element.
+ * @param {string} id2 - The ID of the second element.
+ * @param {string} classList - The class list to be toggled.
  */
 function turnSoundOn(id, id2, classList) {
   toggleSound(id, id2, classList, true);
 }
 
 /**
- * Schaltet den Ton aus.
- * @param {string} id - Die ID des ersten Elements.
- * @param {string} id2 - Die ID des zweiten Elements.
- * @param {string} classList - Die Klassenliste, die getoggelt werden soll.
+ * Turns the sound off.
+ * @param {string} id - The ID of the first element.
+ * @param {string} id2 - The ID of the second element.
+ * @param {string} classList - The class list to be toggled.
  */
 function turnSoundOff(id, id2, classList) {
   toggleSound(id, id2, classList, false);
 }
 
-
+/**
+ * Opens the controls screen.
+ */
 function openControls() {
   document.getElementById("controls").classList.remove("d_none");
   document.getElementById("startScreenContainer").classList.add("d_none");
 }
 
+/**
+ * Closes the controls screen.
+ */
 function closeControls() {
   document.getElementById("controls").classList.add("d_none");
   document.getElementById("startScreenContainer").classList.remove("d_none");
 }
 
-
+/**
+ * Starts the game.
+ */
 function startGame() {
   document.getElementById("canvas").classList.remove("d_none");
   document.getElementById("startScreenContainer").classList.add("d_none");
@@ -87,10 +83,16 @@ function startGame() {
   initGame();
 }
 
+/**
+ * Restarts the game by reloading the page.
+ */
 function restartGame() {
   location.reload();
 }
 
+/**
+ * Displays the win screen after a delay of 2000 milliseconds.
+ */
 function gameWin() {
   setTimeout(() => {
     clearIntervalIds();
@@ -100,6 +102,9 @@ function gameWin() {
   }, 2000);
 }
 
+/**
+ * Displays the game over screen after a delay of 1000 milliseconds.
+ */
 function gameOver() {
   setTimeout(() => {
     clearIntervalIds();
@@ -109,22 +114,37 @@ function gameOver() {
   }, 1000);
 }
 
+/**
+ * Shows the win screen.
+ */
 function showWinScreen() {
   document.getElementById("winScreen").classList.remove("d_none");
 }
 
+/**
+ * Shows the game over screen.
+ */
 function showGameOverScreen() {
   document.getElementById("gameOverScreen").classList.remove("d_none");
 }
 
+/**
+ * Plays the win sound.
+ */
 function playWinSound() {
   world.AUDIO.game_win.play();
 }
 
+/**
+ * Plays the game over sound.
+ */
 function playOverSound() {
   world.AUDIO.game_over.play();
 }
 
+/**
+ * Resets the background music and character sounds.
+ */
 function resetMusic() {
   world.AUDIO.background_music.currentTime = 0;
   world.AUDIO.endboss_fight.currentTime = 0;
@@ -133,7 +153,9 @@ function resetMusic() {
   world.character.stopSnoring();
 }
 
-
+/**
+ * Toggles fullscreen mode.
+ */
 function toggleFullscreen() {
   let fullscreenOnImg = document.getElementById("fullscreenOn");
   let fullscreenOffImg = document.getElementById("fullscreenOff");
@@ -150,6 +172,9 @@ function toggleFullscreen() {
   }
 }
 
+/**
+ * Handles the event when fullscreen mode changes.
+ */
 document.addEventListener("fullscreenchange", function () {
   let fullscreenOnImg = document.getElementById("fullscreenOn");
   let fullscreenOffImg = document.getElementById("fullscreenOff");

@@ -22,6 +22,12 @@ class ThrowableObject extends MovableObject {
     "./img/6_salsa_bottle/bottle_rotation/bottle_splash/6_bottle_splash.png",
   ];
 
+  /**
+   * Constructs a new instance of a salsa bottle.
+   * @param {number} x - The x-coordinate of the salsa bottle's position.
+   * @param {number} y - The y-coordinate of the salsa bottle's position.
+   * @param {boolean} otherDirection - Determines the direction in which the bottle is thrown.
+   */
   constructor(x, y, otherDirection) {
     super().loadImage("./img/6_salsa_bottle/salsa_bottle.png");
     this.x = x;
@@ -34,11 +40,17 @@ class ThrowableObject extends MovableObject {
     this.throwBottle();
   }
 
+  /**
+   * Initiates the bottle throwing sequence by applying gravity and starting animation.
+   */
   throwBottle() {
     this.bottleGravity();
     this.bottleAnimation();
   }
 
+  /**
+   * Applies gravity to the bottle and moves it horizontally based on the throw direction.
+   */
   bottleGravity() {
     this.speedY = 30;
     this.applyGravity();
@@ -53,6 +65,9 @@ class ThrowableObject extends MovableObject {
     world.character.stopSnoring();
   }
 
+  /**
+   * Controls the animation of the bottle during the throw sequence.
+   */
   bottleAnimation() {
     setStoppableInterval(() => {
       if (!this.isAboveGround()) {

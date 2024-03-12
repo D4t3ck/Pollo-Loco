@@ -92,6 +92,9 @@ class Character extends MovableObject {
 
   world;
 
+  /**
+   * Initializes the character with animations and gravity.
+   */
   constructor() {
     super().loadImage(this.IMAGES_WALKING[0]);
     this.loadImages(this.IMAGES_WALKING);
@@ -104,11 +107,17 @@ class Character extends MovableObject {
     this.animateCharacter();
   }
 
+  /**
+   * Animates the character's movements and actions.
+   */
   animateCharacter() {
     setStoppableInterval(() => this.moveCharacter(), 1000 / 60);
     setStoppableInterval(() => this.initCharacter(), 80);
   }
 
+  /**
+   * Moves the character based on keyboard input and game conditions.
+   */
   moveCharacter() {
     if (!this.isDead()) {
       if (this.canMoveRight()) this.moveRight();
@@ -118,6 +127,9 @@ class Character extends MovableObject {
     }
   }
 
+  /**
+   * Initializes the character's animations and actions based on game conditions.
+   */
   initCharacter() {
     if (this.isDead()) {
       this.deathAnimation();
@@ -134,6 +146,10 @@ class Character extends MovableObject {
     }
   }
 
+  /**
+   * Checks if the character can move right based on keyboard input and game conditions.
+   * @returns {boolean} Indicates if the character can move right.
+   */
   canMoveRight() {
     let canMove =
       this.world.keyboard.RIGHT && this.x < this.world.level.levelEnd;
@@ -146,6 +162,9 @@ class Character extends MovableObject {
     }
   }
 
+  /**
+   * Moves the character to the right.
+   */
   moveRight() {
     super.moveRight();
     this.otherDirection = false;
@@ -153,6 +172,10 @@ class Character extends MovableObject {
     world.AUDIO.walking_sound.play();
   }
 
+  /**
+   * Checks if the character can move left based on keyboard input and game conditions.
+   * @returns {boolean} Indicates if the character can move left.
+   */
   canMoveLeft() {
     let canMove = this.world.keyboard.LEFT && this.x > -1000;
 
@@ -164,6 +187,9 @@ class Character extends MovableObject {
     }
   }
 
+  /**
+   * Moves the character to the left.
+   */
   moveLeft() {
     super.moveLeft();
     this.otherDirection = true;
@@ -171,11 +197,18 @@ class Character extends MovableObject {
     world.AUDIO.walking_sound.play();
   }
 
+  /**
+   * Stops the walking sound when the character stops moving.
+   */
   stopWalkingSound() {
     world.AUDIO.walking_sound.pause();
     this.isWalking = false;
   }
 
+  /**
+   * Checks if the character can jump based on keyboard input and game conditions.
+   * @returns {boolean} Indicates if the character can jump.
+   */
   canJump() {
     return (
       (this.world.keyboard.SPACE && !this.isAboveGround()) ||
@@ -183,16 +216,25 @@ class Character extends MovableObject {
     );
   }
 
+  /**
+   * Makes the character jump.
+   */
   jump() {
     super.jump();
     world.AUDIO.jumping_sound.play();
     this.stopSnoring();
   }
 
+  /**
+   * Scrolls the game map based on the character's position.
+   */
   scrollMap() {
     this.world.camera_x = -this.x + 200;
   }
 
+  /**
+   * Initiates the death animation for the character.
+   */
   deathAnimation() {
     gameOver();
     this.playAnimation(this.IMAGES_DEAD);
@@ -201,12 +243,18 @@ class Character extends MovableObject {
     this.stopSnoring();
   }
 
+  /**
+   * Initiates the hurt animation for the character.
+   */
   hurtAnimation() {
     this.playAnimation(this.IMAGES_HURT);
     world.AUDIO.hurt_sound.play();
     this.stopSnoring();
   }
 
+  /**
+   * Stops the snoring sound if the character is snoring.
+   */
   stopSnoring() {
     if (this.isSnoring) {
       world.AUDIO.snoring_sound.pause();
@@ -215,32 +263,51 @@ class Character extends MovableObject {
     }
   }
 
+  /**
+   * Initiates the jump animation for the character.
+   */
   jumpAnimation() {
     this.playAnimation(this.IMAGES_JUMPING);
     this.setTimeStamp();
   }
 
+  /**
+   * Initiates the move animation for the character.
+   */
   moveAnimation() {
     this.playAnimation(this.IMAGES_WALKING);
     this.setTimeStamp();
   }
 
+  /**
+   * Initiates the sleep animation for the character.
+   */
   sleepAnimation() {
     this.isSnoring = true;
     this.playAnimation(this.IMAGES_SLEEPING);
     world.AUDIO.snoring_sound.play();
   }
 
+  /**
+   * Initiates the idle animation for the character.
+   */
   idleAnimation() {
     this.playAnimation(this.IMAGES_IDLE);
   }
 
+  /**
+   * Calculates the time passed since the last character movement.
+   * @returns {number} Time passed since the last movement.
+   */
   lastMoveTimepassed() {
     let timepassed = new Date().getTime() - this.characterLastMovement;
     timepassed = timepassed / 500;
     return timepassed;
   }
 
+  /**
+   * Sets the timestamp for the last character movement.
+   */
   setTimeStamp() {
     this.characterLastMovement = new Date().getTime();
   }

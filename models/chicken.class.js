@@ -20,6 +20,10 @@ class Chicken extends MovableObject {
 
   IMAGE_DEAD = ["./img/3_enemies_chicken/chicken_normal/2_dead/dead.png"];
 
+  /**
+   * Creates a new instance of a Chicken object.
+   * @param {number} x - The initial x-coordinate of the chicken.
+   */
   constructor(x) {
     super().loadImage(this.IMAGES_WALKING[0]);
     this.loadImages(this.IMAGES_WALKING);
@@ -28,6 +32,9 @@ class Chicken extends MovableObject {
     this.animateChicken();
   }
 
+  /**
+   * Initiates the animation for the chicken object.
+   */
   animateChicken() {
     this.moveChickenInterval = setInterval(() => {
       if (world.character.x < this.x) {

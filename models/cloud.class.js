@@ -3,6 +3,11 @@ class Cloud extends MovableObject {
   width = 500;
   height = 300;
 
+  /**
+   * Creates a new instance of a Cloud object.
+   * @param {string} imagePath - The image path of the cloud.
+   * @param {number} x - The initial x-coordinate of the cloud.
+   */
   constructor(imagePath, x) {
     super().loadImage(imagePath, x);
     this.x = x;
@@ -10,6 +15,9 @@ class Cloud extends MovableObject {
     this.animate();
   }
 
+  /**
+   * Initiates the animation for the cloud object.
+   */
   animate() {
     setInterval(() => {
       this.moveLeft();

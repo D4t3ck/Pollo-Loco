@@ -11,6 +11,10 @@ class StatusBarLife extends StatusBar {
     "img/7_statusbars/1_statusbar/2_statusbar_health/green/100.png",
   ];
 
+  /**
+   * Constructs a new instance of the status bar.
+   * Loads the default image and initializes the status bar with a full percentage value (100%).
+   */
   constructor() {
     super().loadImage(this.IMAGES_STATUSBAR[0]);
     this.loadImages(this.IMAGES_STATUSBAR);
