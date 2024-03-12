@@ -146,15 +146,17 @@ main h1 {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  overflow-y: auto;
+  scrollbar-width: thin;
   background: radial-gradient(circle, hsl(38, 59%, 78%) 0%, hsl(38, 31%, 65%) 81%);
 }
 .footer .story .story_content h2 {
   text-align: center;
+  padding-top: 2rem;
+  margin-bottom: 1rem;
 }
-.footer .story .story_content span {
-  display: block;
-  margin-bottom: 10px;
-  line-height: 1.5;
+.footer .story .story_content p {
+  margin-bottom: 1rem;
 }
 .footer .impress {
   display: none;
@@ -193,8 +195,6 @@ main h1 {
 }
 .footer .impress .impress_content p {
   margin-bottom: 1rem;
-  line-height: 1.5;
-  color: #333;
 }
 .footer .impress .impress_content a {
   color: #007bff;
@@ -236,7 +236,6 @@ main h1 {
 }
 .footer .privacyPolicy .privacy_policy_content p {
   margin-bottom: 1rem;
-  color: #333;
 }
 .footer .privacyPolicy .privacy_policy_content a {
   color: #007bff;

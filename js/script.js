@@ -68,7 +68,7 @@ function turnSoundOff(id, id2, classList) {
   toggleSound(id, id2, classList, false);
 }
 
-/* CONTROLS */
+
 function openControls() {
   document.getElementById("controls").classList.remove("d_none");
   document.getElementById("startScreenContainer").classList.add("d_none");
@@ -78,7 +78,7 @@ function closeControls() {
   document.getElementById("controls").classList.add("d_none");
   document.getElementById("startScreenContainer").classList.remove("d_none");
 }
-/* CONTROLS */
+
 
 function startGame() {
   document.getElementById("canvas").classList.remove("d_none");
@@ -133,7 +133,7 @@ function resetMusic() {
   world.character.stopSnoring();
 }
 
-/* FULLSCREEN */
+
 function toggleFullscreen() {
   let fullscreenOnImg = document.getElementById("fullscreenOn");
   let fullscreenOffImg = document.getElementById("fullscreenOff");

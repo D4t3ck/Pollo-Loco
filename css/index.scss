@@ -206,6 +206,8 @@ main {
       border-radius: 10px;
       transform: translate(-50%, -50%);
       user-select: none;
+      overflow-y: auto;
+      scrollbar-width: thin;
       background: radial-gradient(
         circle,
         hsla(38, 59%, 78%, 1) 0%,
@@ -214,12 +216,12 @@ main {
 
       h2 {
         text-align: center;
+        padding-top: 2rem;
+        margin-bottom: 1rem;
       }
 
-      span {
-        display: block;
-        margin-bottom: 10px;
-        line-height: 1.5;
+      p {
+        margin-bottom: 1rem;
       }
     }
   }
@@ -264,8 +266,6 @@ main {
 
       p {
         margin-bottom: 1rem;
-        line-height: 1.5;
-        color: #333;
       }
 
       a {
@@ -316,7 +316,6 @@ main {
 
       p {
         margin-bottom: 1rem;
-        color: #333;
       }
 
       a {

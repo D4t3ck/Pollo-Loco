@@ -66,6 +66,7 @@ canvas {
   padding: 0.5rem;
   font-family: system-ui, sans-serif;
   font-size: 1.25rem;
+  font-weight: bold;
   color: black;
   background-color: rgb(250, 165, 0);
   border: unset;
