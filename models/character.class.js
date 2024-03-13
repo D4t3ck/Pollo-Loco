@@ -170,6 +170,7 @@ class Character extends MovableObject {
     this.otherDirection = false;
     this.stopSnoring();
     world.AUDIO.walking_sound.play();
+    world.AUDIO.walking_sound.volume = 0.5;
   }
 
   /**
@@ -195,6 +196,7 @@ class Character extends MovableObject {
     this.otherDirection = true;
     this.stopSnoring();
     world.AUDIO.walking_sound.play();
+    world.AUDIO.walking_sound.volume = 0.5;
   }
 
   /**
@@ -286,6 +288,7 @@ class Character extends MovableObject {
     this.isSnoring = true;
     this.playAnimation(this.IMAGES_SLEEPING);
     world.AUDIO.snoring_sound.play();
+    world.AUDIO.snoring_sound.volume = 0.5;
   }
 
   /**

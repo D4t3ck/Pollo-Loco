@@ -149,6 +149,7 @@ class World {
         this.character.raiseProgressbarCoin();
         this.statusBarCoin.setPercentage(this.character.progessCoinBar);
         this.AUDIO.coin_collect.play();
+        this.AUDIO.coin_collect.volume = 0.4;
       }
     });
   }

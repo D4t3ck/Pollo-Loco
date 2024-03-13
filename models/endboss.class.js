@@ -155,7 +155,8 @@ class Endboss extends MovableObject {
   endbossReached() {
     if (world.character.x > 3400) {
       world.AUDIO.endboss_fight.play();
-      world.AUDIO.background_music.volume = 0.1;
+      world.AUDIO.endboss_fight.volume = 0.5;
+      world.AUDIO.background_music.volume = 0;
       this.hadFirstContact = true;
     }
   }

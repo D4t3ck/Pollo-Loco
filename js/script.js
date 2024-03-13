@@ -4,26 +4,27 @@
 function playBackgroundMusic() {
   setTimeout(() => {
     let backgroundMusic = world.AUDIO.background_music;
-    backgroundMusic.volume = 0.3;
+    backgroundMusic.volume = 0.08;
     backgroundMusic.play();
   }, 1000);
 }
 
 /**
- * Toggles the sound on or off and updates corresponding classes.
- * @param {string} id - The ID of the first element.
- * @param {string} id2 - The ID of the second element.
- * @param {string} classList - The class list to be toggled.
- * @param {boolean} mute - Indicates whether to mute the sound (true) or not (false).
+ * Toggles the mute state of audio elements and updates the classList of specified elements.
+ * @param {string} id - The ID of the first element to toggle classList.
+ * @param {string} id2 - The ID of the second element to toggle classList.
+ * @param {string} classList - The classList to toggle on the specified elements.
+ * @param {boolean} mute - The mute state to set for audio elements.
+ * @returns {void}
  */
 function toggleSound(id, id2, classList, mute) {
   toggleClassList(id, id2, classList);
-  const sounds = [
-    // List of sound IDs
-  ];
-  sounds.forEach((sound) => {
-    world.AUDIO[sound].muted = mute;
-  });
+
+  for (let sound in world.AUDIO) {
+    if (world.AUDIO.hasOwnProperty(sound)) {
+      world.AUDIO[sound].muted = mute;
+    }
+  }
 }
 
 /**
