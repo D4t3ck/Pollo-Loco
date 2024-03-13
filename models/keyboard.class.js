@@ -9,6 +9,7 @@ class Keyboard {
 
   constructor() {
     this.keyboardControls();
+    this.eventTouchpadBtns();
   }
 
   /**
@@ -57,5 +58,68 @@ class Keyboard {
         keyboard.SPACE = false;
       }
     });
+  }
+
+  /**
+   * Initializes touch event listeners for controlling game actions on touchpad buttons.
+   */
+  eventTouchpadBtns() {
+    setTimeout(() => {
+      document
+        .getElementById("movingLeftBtn")
+        .addEventListener("touchstart", (event) => {
+          event.preventDefault();
+          this.LEFT = true;
+        });
+
+      document
+        .getElementById("movingLeftBtn")
+        .addEventListener("touchend", (event) => {
+          event.preventDefault();
+          this.LEFT = false;
+        });
+
+      document
+        .getElementById("movingRightBtn")
+        .addEventListener("touchstart", (event) => {
+          event.preventDefault();
+          this.RIGHT = true;
+        });
+
+      document
+        .getElementById("movingRightBtn")
+        .addEventListener("touchend", (event) => {
+          event.preventDefault();
+          this.RIGHT = false;
+        });
+
+      document
+        .getElementById("mobileThrow")
+        .addEventListener("touchstart", (event) => {
+          event.preventDefault();
+          this.F = true;
+        });
+
+      document
+        .getElementById("mobileThrow")
+        .addEventListener("touchend", (event) => {
+          event.preventDefault();
+          this.F = false;
+        });
+
+      document
+        .getElementById("mobileJump")
+        .addEventListener("touchstart", (event) => {
+          event.preventDefault();
+          this.SPACE = true;
+        });
+
+      document
+        .getElementById("mobileJump")
+        .addEventListener("touchend", (event) => {
+          event.preventDefault();
+          this.SPACE = false;
+        });
+    }, 500);
   }
 }

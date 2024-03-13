@@ -99,7 +99,7 @@ class World {
     enemy.loadImage(enemy.IMAGE_DEAD);
     setTimeout(() => {
       this.eraseEnemyFromArray(enemy); //// setTimeout rausnehmen
-    }, 550);
+    }, 600);
   }
 
   /**

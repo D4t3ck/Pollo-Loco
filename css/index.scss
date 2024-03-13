@@ -327,3 +327,24 @@ main {
     }
   }
 }
+
+@media only screen and (max-width: 1300px) {
+
+  main {
+    margin: 0;
+  }
+
+  main h1 {
+    text-align: center;
+  }
+
+  .start_btn {
+    width: auto;
+    margin: 1em 0;
+    padding: 0.5rem;
+  }
+
+  .footer.footer .btn_container {
+    flex-direction: column;
+  }
+}

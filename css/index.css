@@ -242,4 +242,21 @@ main h1 {
   text-decoration: underline;
   word-break: break-all;
   font-size: smaller;
+}
+
+@media only screen and (max-width: 1300px) {
+  main {
+    margin: 0;
+  }
+  main h1 {
+    text-align: center;
+  }
+  .start_btn {
+    width: auto;
+    margin: 1em 0;
+    padding: 0.5rem;
+  }
+  .footer.footer .btn_container {
+    flex-direction: column;
+  }
 }/*# sourceMappingURL=index.css.map */

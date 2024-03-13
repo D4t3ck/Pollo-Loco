@@ -35,11 +35,15 @@
       <div class="wrapper" id="wrapper">
         <canvas class="d_none" id="canvas" width="1280" height="720"> </canvas>
 
+        <!--Turn Phone Screen-->
+      <div id="turnPhone" class="turnPhoneScreen d_none">
+        <img src="./img/turn_phone.gif" />
+      </div>
+      <!--Turn Phone Screen-->
+
         <!-- MENU -->
         <div class="menu_container d_none" id="menu">
-          <button onclick="restartGame()" class="restart_btn">
-            Menu
-          </button>
+          <button onclick="restartGame()" class="restart_btn">Menu</button>
 
           <button class="fullscreen_btn">
             <img
@@ -158,6 +162,41 @@
         <!-- GAME_OVER_SCREEN -->
       </div>
       <!--START_SCREEN-->
+
+      <!-- MOBILE_BUTTONS -->
+      <div id="mobileBtn">
+        <div class="mobile_moving">
+          <img
+            class="mobile_btn"
+            id="movingLeftBtn"
+            src="./img/controls/moving_btn.png"
+            alt="moving left"
+          />
+          <img
+            class="mobile_btn"
+            id="movingRightBtn"
+            src="./img/controls/moving_btn.png"
+            alt="moving right"
+          />
+        </div>
+        <div class="mobile_action">
+          <img
+          class="mobile_btn"
+          id="mobileThrow"
+          src="./img/6_salsa_bottle/salsa_bottle.png"
+          alt="throwing"
+          />
+          <img
+            class="mobile_btn"
+            id="mobileJump"
+            src="./img/controls/space_black.png"
+            alt="jumping"
+            class="mobile_btn"
+            id="mobileJump"
+          />
+        </div>
+      </div>
+      <!-- MOBILE_BUTTONS -->
       <!-- WRAPPER -->
     </main>
     <script src="./js/script.js"></script>
