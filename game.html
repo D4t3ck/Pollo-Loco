@@ -5,29 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>El Pollo Loco - Game</title>
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/png" />
-    <link rel="stylesheet" href="./css/style.css" />
-
-    <script src="./models/keyboard.class.js"></script>
-    <script src="./models/drawableObject.class.js"></script>
-    <script src="./models/movableObject.class.js"></script>
-    <script src="./models/throwableObject.class.js"></script>
-    <script src="./models/character.class.js"></script>
-    <script src="./models/coin.class.js"></script>
-    <script src="./models/bottle.class.js"></script>
-    <script src="./models/chicken.class.js"></script>
-    <script src="./models/chickenSmall.class.js"></script>
-    <script src="./models/cloud.class.js"></script>
-    <script src="./models/world.class.js"></script>
-    <script src="./models/backgroundObject.class.js"></script>
-    <script src="./models/endboss.class.js"></script>
-    <script src="./models/statusBar.class.js"></script>
-    <script src="./models/statusBarLife.class.js"></script>
-    <script src="./models/statusBarBottle.class.js"></script>
-    <script src="./models/statusBarCoin.class.js"></script>
-    <script src="./models/statusBarEndboss.class.js"></script>
-    <script src="./models/level.class.js"></script>
-    <script src="./levels/level1.js"></script>
-    <script src="./js/game.js"></script>
+    <link rel="stylesheet" href="/dist/style.css" />
   </head>
   <body>
     <main id="main_container" class="main_container">
@@ -35,15 +13,9 @@
       <div class="wrapper" id="wrapper">
         <canvas class="d_none" id="canvas" width="1280" height="720"> </canvas>
 
-        <!--Turn Phone Screen-->
-      <div id="turnPhone" class="turnPhoneScreen d_none">
-        <img src="./img/turn_phone.gif" />
-      </div>
-      <!--Turn Phone Screen-->
-
         <!-- MENU -->
         <div class="menu_container d_none" id="menu">
-          <button onclick="restartGame()" class="restart_btn">Menu</button>
+          <button onclick="restartGame()" class="restart_btn">MENU</button>
 
           <button class="fullscreen_btn">
             <img
@@ -89,7 +61,8 @@
             src="./img/9_intro_outro_screens/start/startscreen_2.png"
             id="startScreen"
           />
-          <div class="btn_container">
+          <div id="btnContainer" class="btn_container">
+
             <button onclick="history.back()" class="back_btn">&#88;</button>
 
             <button onclick="startGame()" class="start_btn">START</button>
@@ -163,6 +136,12 @@
       </div>
       <!--START_SCREEN-->
 
+      <!--Turn Phone Screen-->
+      <div id="turnPhone" class="turnPhoneScreen">
+        <img src="./img/turn_phone.gif" />
+      </div>
+      <!--Turn Phone Screen-->
+
       <!-- MOBILE_BUTTONS -->
       <div class="mobile_Btn" id="mobileBtn">
         <div class="mobile_moving">
@@ -181,10 +160,10 @@
         </div>
         <div class="mobile_action">
           <img
-          class="mobile_btn"
-          id="mobileThrow"
-          src="./img/6_salsa_bottle/salsa_bottle.png"
-          alt="throwing"
+            class="mobile_btn"
+            id="mobileThrow"
+            src="./img/6_salsa_bottle/salsa_bottle.png"
+            alt="throwing"
           />
           <img
             class="mobile_btn"
@@ -199,6 +178,28 @@
       <!-- MOBILE_BUTTONS -->
       <!-- WRAPPER -->
     </main>
+
     <script src="./js/script.js"></script>
+    <script src="./models/keyboard.class.js"></script>
+    <script src="./models/drawableObject.class.js"></script>
+    <script src="./models/movableObject.class.js"></script>
+    <script src="./models/throwableObject.class.js"></script>
+    <script src="./models/character.class.js"></script>
+    <script src="./models/coin.class.js"></script>
+    <script src="./models/bottle.class.js"></script>
+    <script src="./models/chicken.class.js"></script>
+    <script src="./models/chickenSmall.class.js"></script>
+    <script src="./models/cloud.class.js"></script>
+    <script src="./models/world.class.js"></script>
+    <script src="./models/backgroundObject.class.js"></script>
+    <script src="./models/endboss.class.js"></script>
+    <script src="./models/statusBar.class.js"></script>
+    <script src="./models/statusBarLife.class.js"></script>
+    <script src="./models/statusBarBottle.class.js"></script>
+    <script src="./models/statusBarCoin.class.js"></script>
+    <script src="./models/statusBarEndboss.class.js"></script>
+    <script src="./models/level.class.js"></script>
+    <script src="./levels/level1.js"></script>
+    <script src="./js/game.js"></script>
   </body>
 </html>

@@ -198,22 +198,22 @@ window.addEventListener("resize", handleTurnPhonePopup);
  * Detects the mobile device and shows or hides the mobile buttons.
  */
 function detectMobileDevice() {
-	if (navigator.userAgent) {
-		showMobileBtns();
-	} else {
-		hideMobileBtns();
-	}
+  if (navigator.userAgent) {
+    showMobileBtns();
+  } else {
+    hideMobileBtns();
+  }
 }
 
 /**
  * Handles the visibility of the turn your phone screen
  */
 function handleTurnPhonePopup() {
-	var mql = window.matchMedia("(orientation: portrait)");
-	// If there are matches, we're in portrait
-	if (mql.matches && window.innerWidth <= 820) {
-		turnPhone.classList.remove("d_none");
-	} else {
-		turnPhone.classList.add("d_none");
-	}
+  let mql = window.matchMedia("(orientation: portrait)");
+
+  if (mql.matches && window.innerWidth <= 820) {
+    turnPhone.classList.remove("d_none");
+  } else {
+    turnPhone.classList.add("d_none");
+  }
 }

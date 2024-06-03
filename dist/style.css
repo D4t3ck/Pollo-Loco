@@ -5,6 +5,8 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  user-select: none;
 }
 
 body {
@@ -18,9 +20,7 @@ body {
   background-size: cover;
   overflow: hidden;
   box-sizing: border-box;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 .main_container {
@@ -38,10 +38,12 @@ body {
   overflow: hidden;
   border: 2px solid whitesmoke;
   border-radius: 10px;
+  max-width: 1280px;
+  max-height: 720px;
 }
 
 canvas {
-  display: flex;
+  display: block;
   background-color: black;
 }
 
@@ -60,16 +62,16 @@ canvas {
 
 .turnPhoneScreen img {
   width: 100%;
-  max-width: 400px;
+  max-width: 100%;
   height: auto;
 }
 
 /* MENU */
 .menu_container {
   position: absolute;
-  top: 1rem;
+  top: 0.5rem;
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   padding: 0.5rem;
   background-color: #a0220a;
   border: 1px solid whitesmoke;
@@ -80,16 +82,14 @@ canvas {
 .menu_container .restart_btn,
 .menu_container .fullscreen_btn,
 .menu_container .sound_btn {
-  width: 100%;
   padding: 0.5rem;
   font-family: system-ui, sans-serif;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: bold;
   color: black;
   background-color: rgb(250, 165, 0);
   border: unset;
   border-radius: 5px;
-  letter-spacing: 2px;
   box-shadow: -1px 1px 5px 0px #000;
 }
 .menu_container .restart_btn:hover,
@@ -108,6 +108,7 @@ canvas {
 /* MENU */
 /* STARTSCREEN */
 .start_screen_container {
+  position: relative;
   display: flex;
   width: 100%;
   height: 100%;
@@ -115,15 +116,14 @@ canvas {
 .start_screen_container img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .start_screen_container .btn_container {
   position: absolute;
-  top: 1rem;
-  left: 2rem;
+  top: 0.5rem;
+  left: 0.5rem;
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   padding: 0.5rem;
   background-color: #a0220a;
   border: 1px solid whitesmoke;
@@ -135,8 +135,9 @@ canvas {
   width: 100%;
   min-width: 2rem;
   padding: 0.5rem;
-  font-family: "zabras", sans-serif;
-  font-size: 1.25rem;
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
   color: black;
   background-color: rgb(250, 165, 0);
   border: unset;
@@ -151,8 +152,9 @@ canvas {
 .start_screen_container .controls_btn {
   width: 100%;
   padding: 0.5rem;
-  font-family: "zabras", sans-serif;
-  font-size: 1.25rem;
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
   color: black;
   background-color: rgb(250, 165, 0);
   border: unset;
@@ -318,9 +320,7 @@ canvas {
   align-items: center;
   width: 100%;
   z-index: 1;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 #mobileBtn .mobile_moving {
   display: flex;
@@ -338,11 +338,11 @@ canvas {
 }
 
 .mobile_btn {
-  width: 40px;
+  width: 50px;
 }
 
 #mobileJump {
-  width: 60px;
+  width: 70px;
 }
 
 #movingRightBtn {
@@ -355,7 +355,7 @@ canvas {
 
 /* MOBILE_BUTTONS */
 .d_none {
-  display: none;
+  display: none !important;
 }
 
 @media only screen and (max-width: 1300px) {
@@ -364,10 +364,12 @@ canvas {
   }
   .wrapper {
     margin: 6rem;
+    width: 100%;
     height: auto;
   }
   canvas {
     width: 100%;
+    height: auto;
   }
   .gameOver_screen_container .gameOver_screen_content h2,
   .win_Screen_container .win_screen_content h2 {
@@ -376,15 +378,36 @@ canvas {
   .controls_container .controls_head h2 {
     margin: 0;
   }
+  .menu_container {
+    padding: 0.3rem !important;
+  }
   .menu_container .restart_btn {
     width: auto;
-    padding: 0;
     font-size: unset;
   }
   .menu_container .fullscreen_btn {
     display: none;
   }
+  .restart_btn {
+    font-size: 0.6rem !important;
+  }
+  .restart_btn,
+  .fullscreen_btn,
+  .sound_btn {
+    padding: 2px !important;
+  }
+  .sound_btn img {
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+}
+@media only screen and (max-width: 1200px) {
   #mobileBtn {
     display: flex;
+  }
+}
+@media (max-width: 820px) and (min-height: 730px) {
+  .btn_container {
+    display: none !important;
   }
 }/*# sourceMappingURL=style.css.map */
