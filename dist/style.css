@@ -33,8 +33,8 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 1280px;
-  height: 720px;
+  width: 100vw;
+  height: 100dvh;
   overflow: hidden;
   border: 2px solid whitesmoke;
   border-radius: 10px;
@@ -69,7 +69,7 @@ canvas {
 /* MENU */
 .menu_container {
   position: absolute;
-  top: 0.5rem;
+  top: 0.3rem;
   display: flex;
   gap: 0.5rem;
   padding: 0.5rem;
@@ -82,7 +82,7 @@ canvas {
 .menu_container .restart_btn,
 .menu_container .fullscreen_btn,
 .menu_container .sound_btn {
-  padding: 0.5rem;
+  padding: 0.15rem 0.5rem;
   font-family: system-ui, sans-serif;
   font-size: 1rem;
   font-weight: bold;
@@ -120,8 +120,8 @@ canvas {
 }
 .start_screen_container .btn_container {
   position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
+  top: 0.3rem;
+  left: 0.3rem;
   display: flex;
   gap: 0.5rem;
   padding: 0.5rem;
@@ -132,9 +132,7 @@ canvas {
   z-index: 100;
 }
 .start_screen_container .back_btn {
-  width: 100%;
-  min-width: 2rem;
-  padding: 0.5rem;
+  padding: 0.15rem 0.5rem;
   font-family: system-ui, sans-serif;
   font-size: 1rem;
   font-weight: bold;
@@ -150,8 +148,7 @@ canvas {
 }
 .start_screen_container .start_btn,
 .start_screen_container .controls_btn {
-  width: 100%;
-  padding: 0.5rem;
+  padding: 0.15rem 0.5rem;
   font-family: system-ui, sans-serif;
   font-size: 1rem;
   font-weight: bold;
@@ -183,7 +180,6 @@ canvas {
 .controls_container .controls_head {
   display: flex;
   justify-content: center;
-  gap: a;
   width: 100%;
   font-size: 1.5rem;
 }
@@ -206,10 +202,7 @@ canvas {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10rem;
   width: 100%;
-  max-width: 500px;
-  border-spacing: 0 15px;
 }
 .controls_container .info {
   padding-left: 10rem;
@@ -394,7 +387,7 @@ canvas {
   .restart_btn,
   .fullscreen_btn,
   .sound_btn {
-    padding: 2px !important;
+    padding: 0.05rem 1rem !important;
   }
   .sound_btn img {
     width: 1rem !important;
@@ -410,4 +403,4 @@ canvas {
   .btn_container {
     display: none !important;
   }
-}/*# sourceMappingURL=style.css.map */
+}
