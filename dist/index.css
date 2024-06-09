@@ -14,9 +14,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 main {
@@ -31,9 +29,7 @@ main h1 {
   letter-spacing: 0.5rem;
   text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
   margin-block: 0;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   font-family: "zabras", sans-serif;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000;
@@ -46,9 +42,7 @@ main h1 {
   background: #95d8f5;
   border-radius: 15px;
   border: 0;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   color: #fff;
   font-size: 2rem;
   font-family: system-ui, sans-serif;
@@ -62,6 +56,11 @@ main h1 {
   text-transform: uppercase;
   box-shadow: none;
   box-shadow: -1px 5px 5px 0px #000;
+  background: -moz-linear-gradient(-45deg, #6dd0fa 0%, #6dd0fa 40%, #ffffff 50%, #6dd0fa 60%, #6dd0fa 100%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #6dd0fa), color-stop(40%, #6dd0fa), color-stop(50%, #ffffff), color-stop(60%, #6dd0fa), color-stop(100%, #6dd0fa));
+  background: -webkit-linear-gradient(-45deg, #6dd0fa 0%, #6dd0fa 40%, #ffffff 50%, #6dd0fa 60%, #6dd0fa 100%);
+  background: -o-linear-gradient(-45deg, #6dd0fa 0%, #6dd0fa 40%, #ffffff 50%, #6dd0fa 60%, #6dd0fa 100%);
+  background: -ms-linear-gradient(-45deg, #6dd0fa 0%, #6dd0fa 40%, #ffffff 50%, #6dd0fa 60%, #6dd0fa 100%);
   background: linear-gradient(135deg, #6dd0fa 0%, #6dd0fa 40%, #ffffff 50%, #6dd0fa 60%, #6dd0fa 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#6dd0fa", endColorstr="#6dd0fa",GradientType=1 );
   background-repeat: no-repeat;
@@ -75,6 +74,14 @@ main h1 {
 }
 
 @keyframes light {
+  0% {
+    background-position: -600px;
+  }
+  100% {
+    background-position: 0px;
+  }
+}
+@-webkit-keyframes light {
   0% {
     background-position: -600px;
   }
@@ -141,9 +148,7 @@ main h1 {
   border: 3px solid black;
   border-radius: 10px;
   transform: translate(-50%, -50%);
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   overflow-y: auto;
   scrollbar-width: thin;
   background: radial-gradient(circle, hsl(38, 59%, 78%) 0%, hsl(38, 31%, 65%) 81%);
@@ -180,9 +185,7 @@ main h1 {
   border: 3px solid black;
   border-radius: 10px;
   transform: translate(-50%, -50%);
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   overflow-y: auto;
   scrollbar-width: thin;
   background: radial-gradient(circle, hsl(38, 59%, 78%) 0%, hsl(38, 31%, 65%) 81%);
