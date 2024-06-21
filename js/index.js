@@ -20,17 +20,17 @@ function closeStory() {
 }
 
 /**
-* Opens the impress container to display the impressum.
+* Opens the imprint container to display the imprint.
 */
-function openImpress() {
-  impressContainer.style.display = "flex";
+function openImprint() {
+  imprintContainer.style.display = "flex";
 }
 
 /**
-* Closes the impress container to hide the impressum.
+* Closes the imprint container to hide the imprint.
 */
-function closeImpress() {
-  impressContainer.style.display = "none";
+function closeImprint() {
+  imprintContainer.style.display = "none";
 }
 
 /**
