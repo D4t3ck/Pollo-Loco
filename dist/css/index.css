@@ -2,6 +2,15 @@
   font-family: "zabras";
   src: url("/font/zabars.ttf") format("truetype");
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
 body {
   display: flex;
   justify-content: space-evenly;

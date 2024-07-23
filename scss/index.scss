@@ -1,16 +1,4 @@
-@font-face {
-  font-family: "zabras";
-  src: url("/font/zabars.ttf") format("truetype");
-}
-
-$mainFont: "zabras", sans-serif;
-$systemFont: system-ui, sans-serif;
-
-@mixin centerDiv {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+@import "./style.scss";
 
 body {
   display: flex;
