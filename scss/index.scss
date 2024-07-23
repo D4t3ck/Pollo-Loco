@@ -1,6 +1,6 @@
 @font-face {
   font-family: "zabras";
-  src: url("../font/zabars.ttf") format("truetype");
+  src: url("/font/zabars.ttf") format("truetype");
 }
 
 $mainFont: "zabras", sans-serif;
@@ -20,7 +20,7 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
-  background-image: url("../img/5_background/desert2.jpg");
+  background-image: url("/img/5_background/desert_bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -190,17 +190,20 @@ main {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.41);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.9px);
+    -webkit-backdrop-filter: blur(4.9px);
 
     .story_content {
-     display: flex;
+      display: flex;
       position: absolute;
       top: 50%;
       left: 50%;
       flex-direction: column;
       height: 60vh;
-      width: 75vw;
+      width: 80vw;
       padding: 1rem;
       border: 3px solid black;
       border-radius: 10px;
@@ -235,8 +238,11 @@ main {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.41);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.9px);
+    -webkit-backdrop-filter: blur(4.9px);
 
     .imprint_content {
       display: flex;
@@ -287,6 +293,10 @@ main {
     height: 100%;
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.41);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.9px);
+    -webkit-backdrop-filter: blur(4.9px);
 
     .privacy_policy_content {
       display: flex;
