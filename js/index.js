@@ -5,52 +5,38 @@ function redirect() {
   window.location.href = "./game.html";
 }
 
-/**
-* Opens the story container to display the story.
-*/
-function openStory() {
-  storyContainer.style.display = "flex";
+function openModal(type) {
+  const contentDiv = document.getElementById("modalContent");
+  const modal = document.getElementById("contentModal");
+  if (contentData[type]) {
+    contentDiv.innerHTML = contentData[type];
+    modal.style.display = "flex";
+  } else {
+    contentDiv.innerHTML = "<p>Content not found.</p>";
+    modal.style.display = "none";
+  }
 }
 
-/**
-* Closes the story container to hide the story.
-*/
-function closeStory() {
-  storyContainer.style.display = "none";
+function closeModal() {
+  const modal = document.getElementById("contentModal");
+  modal.style.display = "none";
 }
 
-/**
-* Opens the imprint container to display the imprint.
-*/
-function openImprint() {
-  imprintContainer.style.display = "flex";
-}
+window.onclick = function (event) {
+  const modal = document.getElementById("contentModal");
+  if (event.target === modal) {
+    closeModal();
+  }
+};
 
 /**
-* Closes the imprint container to hide the imprint.
-*/
-function closeImprint() {
-  imprintContainer.style.display = "none";
-}
-
-/**
-* Opens the privacy policy container to display the privacy policy.
-*/
-function openPrivacyPolicy() {
-  privacyPolicyContainer.style.display = "flex";
-}
-
-/**
-* Closes the privacy policy container to hide the privacy policy.
-*/
-function closePrivacyPolicy() {
-  privacyPolicyContainer.style.display = "none";
-}
-
-/**
-* Prevents the event from propagating.
-* @param {Event} event - The event to prevent propagation.
-*/
+ * Prevents the event from propagating.
+ * @param {Event} event - The event to prevent propagation.
+ */
 function doNotClose(event) {
   event.stopPropagation();
 }
+
+// window.onload = function () {
+//   closeModal();
+// };

@@ -7,270 +7,40 @@
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./dist/css/index.css" />
     <script src="./js/index.js"></script>
+    <script src="./js/data.js"></script>
   </head>
   <body>
     <main>
-      <h1>El Pollo Loco</h1>
-      <div>
+      <section class="head">
+        <h1>El Pollo Loco</h1>
         <button class="start_btn" id="startButton" onclick="redirect()">
           ¡Vamos!
         </button>
-      </div>
+      </section>
 
-      <footer class="footer">
+      <section class="foot">
         <div class="btn_container">
-          <button onclick="openStory()" class="story_btn">Story</button>
-          <button onclick="openImprint()" class="imprint_btn">Imprint</button>
-          <button onclick="openPrivacyPolicy()" class="privacy_policy_btn">
+          <button onclick="openModal('story')" class="story_btn">Story</button>
+          <button onclick="openModal('imprint')" class="imprint_btn">
+            Imprint
+          </button>
+          <button
+            onclick="openModal('privacyPolicy')"
+            class="privacy_policy_btn"
+          >
             Privacy Policy
           </button>
         </div>
 
-        <div onclick="closeStory()" class="story" id="storyContainer">
-          <div onclick="doNotClose(event)" class="story_content">
-            <h2>Story</h2>
-            <p>Welcome to Mexico amigo!</p>
-            <p>
-              In a small Mexican village named "Pollopia," known for its
-              delicious chicken dishes, unrest reigns. The chickens, once loyal
-              companions to humans, have risen against their former masters. But
-              that's not the worst – they follow a gigantic, mutated chicken,
-              larger than all others. This monster chicken has taken control and
-              plans to subjugate humanity.
-            </p>
-
-            <p>
-              In this time of crisis, Pepe Peligroso steps up. A brave Mexican
-              with a sharp mind and an even sharper mustache. The government has
-              tasked him with combating the threat posed by the rebellious
-              chickens and saving humanity.
-            </p>
-
-            <p>
-              Armed with his courage and his favorite weapon, a bottle of spicy
-              salsa sauce, Pepe sets out. He traverses dangerous terrain, from
-              the dusty streets of the village to the dark forests where the
-              chickens lurk.
-            </p>
-
-            <p>
-              With skillful jumps and swift movements, Pepe navigates through
-              the levels, collecting salsa sauce and gold coins, and battling
-              the hordes of chickens. Finally, he reaches the climax of his
-              adventure – an epic showdown against the gigantic chicken.
-            </p>
+        <div id="contentModal" class="modal">
+          <div onclick="closeModal()" class="modal_container">
+            <div onclick="doNotClose(event)" class="modal_content">
+              <span class="close" onclick="closeModal()">&times;</span>
+              <div id="modalContent"></div>
+            </div>
           </div>
         </div>
-
-        <div onclick="closeImprint()" class="imprint" id="imprintContainer">
-          <div onclick="doNotClose(event)" class="imprint_content">
-            <h2>Sample Imprint</h2>
-            <p>Information according to § 5 TMG</p>
-            <p>Max Mustermann<br />Sample Street<br />12345 Sample City</p>
-            <p><strong>Represented by:</strong><br />Max Mustermann</p>
-            <p>
-              <strong>Contact:</strong><br />Phone: 01234-789456<br />Fax:
-              1234-56789<br />Email:
-              <a href="mailto:max@muster.de">max@muster.de</a>
-            </p>
-            <p>
-              <strong>VAT ID:</strong><br />VAT identification number according
-              to §27a of the Value Added Tax Act: SampleVATID.
-            </p>
-            <p><strong>Business ID:</strong><br />SampleBusinessID</p>
-            <p>
-              <strong>Supervisory authority:</strong><br />SampleSupervisory
-              Authority SampleCity
-            </p>
-            <p><strong>Disclaimer:</strong></p>
-            <p>
-              Liability for content<br />The contents of our pages have been
-              created with the utmost care. However, we cannot guarantee the
-              accuracy, completeness, and timeliness of the content. As a
-              service provider, we are responsible for our own content on these
-              pages in accordance with § 7 para.1 TMG (German Telemedia Act) and
-              general laws. According to §§ 8 to 10 TMG, we are not obligated as
-              a service provider to monitor transmitted or stored third-party
-              information or to investigate circumstances that indicate illegal
-              activity. Obligations to remove or block the use of information
-              under general laws remain unaffected. However, liability in this
-              regard is only possible from the time of knowledge of a concrete
-              infringement. Upon becoming aware of such infringements, we will
-              remove the content immediately.
-            </p>
-            <p>
-              Liability for links<br />Our offer contains links to external
-              websites of third parties, on whose contents we have no influence.
-              Therefore, we cannot assume any liability for these external
-              contents. The respective provider or operator of the pages is
-              always responsible for the contents of the linked pages. The
-              linked pages were checked for possible legal violations at the
-              time of linking. Illegal contents were not recognizable at the
-              time of linking. However, permanent monitoring of the content of
-              the linked pages is not reasonable without concrete indications of
-              a violation of the law. Upon becoming aware of legal violations,
-              we will remove such links immediately.
-            </p>
-            <p>
-              Copyright<br />The contents and works created by the site
-              operators on these pages are subject to German copyright law. The
-              reproduction, editing, distribution, and any kind of exploitation
-              outside the limits of copyright require the written consent of the
-              respective author or creator. Downloads and copies of this site
-              are only permitted for private, non-commercial use. Insofar as the
-              content on this site was not created by the operator, the
-              copyrights of third parties are respected. In particular,
-              third-party content is identified as such. Should you nevertheless
-              become aware of a copyright infringement, please inform us
-              accordingly. If we become aware of any infringements, we will
-              remove such content immediately.
-            </p>
-            <p>
-              Data protection<br />The use of our website is generally possible
-              without providing personal data. As far as personal data (e.g.,
-              name, address, or email addresses) is collected on our site, this
-              is always done on a voluntary basis, as far as possible. This data
-              will not be passed on to third parties without your express
-              consent. We would like to point out that data transmission over
-              the Internet (e.g., communication by e-mail) can have security
-              gaps. A complete protection of data against access by third
-              parties is not possible. The use of contact data published within
-              the framework of the imprint obligation by third parties for
-              sending unsolicited advertising and information materials is
-              hereby expressly prohibited. The operators of the pages expressly
-              reserve the right to take legal action in the event of the
-              unsolicited sending of advertising information, such as spam
-              emails.
-            </p>
-          </div>
-        </div>
-
-        <div
-          onclick="closePrivacyPolicy()"
-          class="privacy_policy"
-          id="privacyPolicyContainer"
-        >
-          <div onclick="doNotClose(event)" class="privacy_policy_content">
-            <h2>Privacy Policy</h2>
-            <p>
-              Responsible party within the meaning of data protection laws, in
-              particular the EU General Data Protection Regulation (GDPR), is:
-            </p>
-            <p>Daniel Sinteck</p>
-            <h2>Your Rights as a Data Subject</h2>
-            <p>
-              You can exercise the following rights at any time using the
-              contact details provided for our data protection officer:
-            </p>
-            <ul>
-              <li>
-                Information about your stored data and its processing (Art. 15
-                GDPR),
-              </li>
-              <li>Correction of inaccurate personal data (Art. 16 GDPR),</li>
-              <li>Deletion of your stored data (Art. 17 GDPR),</li>
-              <li>
-                Restriction of data processing if we are not yet allowed to
-                delete your data due to legal obligations (Art. 18 GDPR),
-              </li>
-              <li>
-                Objection to the processing of your data by us (Art. 21 GDPR),
-                and
-              </li>
-              <li>
-                Data portability if you have consented to data processing or
-                have entered into a contract with us (Art. 20 GDPR).
-              </li>
-            </ul>
-            <p>
-              If you have given us consent, you can revoke it at any time with
-              effect for the future.
-            </p>
-            <p>
-              You can lodge a complaint with a supervisory authority at any
-              time, e.g., the competent supervisory authority of your habitual
-              residence or the authority responsible for us as the responsible
-              entity.
-            </p>
-            <p>
-              You can find a list of supervisory authorities (for the non-public
-              sector) with addresses at:
-              <br />
-              <a
-                href="https://www.bfdi.bund.de/DE/Service/Anschriften/Laender/Laender-node.html"
-                target="_blank"
-                rel="noopener nofollow"
-                >https://www.bfdi.bund.de/DE/Service/Anschriften/Laender/Laender-node.html</a
-              >.
-            </p>
-
-            <h2>Registration on our website</h2>
-            <h3>Type and purpose of processing:</h3>
-            <p>
-              For registration on our website, we require some personal data
-              that is transmitted to us via an input mask.
-            </p>
-            <p>
-              At the time of registration, the following data is also collected:
-            </p>
-
-            <p>
-              Your registration is necessary for providing certain content and
-              services on our website.
-            </p>
-            <h3>Legal basis:</h3>
-            <p>
-              The processing of the data entered during registration is based on
-              the user's consent (Art. 6 para. 1 lit. a GDPR).
-            </p>
-            <h3>Recipients:</h3>
-            <p>
-              Recipients of the data may be technical service providers who act
-              as processors for the operation and maintenance of our website.
-            </p>
-
-            <h3>Storage period:</h3>
-            <p>
-              Data will only be processed in this context for as long as the
-              respective consent is available.
-            </p>
-            <h3>Provision prescribed or required:</h3>
-            <p>
-              The provision of your personal data is voluntary, based solely on
-              your consent. Without providing your personal data, we cannot
-              grant you access to our offered content.
-            </p>
-
-            <hr />
-            <h2>Information about your right to object under Art. 21 GDPR</h2>
-            <h3>Case-specific right to object</h3>
-            <p>
-              You have the right to object at any time, for reasons arising from
-              your particular situation, to the processing of personal data
-              concerning you under Art. 6 para. 1 lit. f GDPR (data processing
-              based on a balance of interests); this also applies to profiling
-              based on this provision within the meaning of Art. 4 No. 4 GDPR.
-            </p>
-            <p>
-              If you object, we will no longer process your personal data unless
-              we can demonstrate compelling legitimate grounds for processing
-              that outweigh your interests, rights, and freedoms, or the
-              processing serves to assert, exercise, or defend legal claims.
-            </p>
-            <h3>Recipient of an objection</h3>
-
-            <hr />
-            <h2>Changes to our Privacy Policy</h2>
-            <p>
-              We reserve the right to adapt this privacy policy so that it
-              always complies with current legal requirements or to implement
-              changes to our services in the privacy policy, such as when
-              introducing new services. The new privacy policy will apply for
-              your next visit.
-            </p>
-          </div>
-        </div>
-      </footer>
+      </section>
     </main>
   </body>
 </html>

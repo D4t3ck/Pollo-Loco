@@ -1,3 +1,14 @@
+:root {
+  --black: #000;
+  --white: #f5f5f5;
+  --yellow: #faa500;
+  --lightYellow: #fdb72c;
+  --lightBlue: #95d8f5;
+  --blue: #007bff;
+  --sand: #c1ad8a;
+  --darkSand: #7e715a;
+}
+
 @font-face {
   font-family: "zabras";
   src: url("/font/zabars.ttf") format("truetype");
@@ -9,4 +20,8 @@
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+}
+
+.d_none {
+  display: none;
 }
