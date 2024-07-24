@@ -13,9 +13,13 @@
     <main>
       <section class="head">
         <h1>El Pollo Loco</h1>
-        <button class="start_btn" id="startButton" onclick="redirect()">
-          ¡Vamos!
-        </button>
+        <button
+          class="start_btn"
+          id="startButton"
+          onclick="redirect()"
+          onmouseover="changeText(this)"
+          onmouseout="resetText(this)"
+        >¡Start!</button>
       </section>
 
       <section class="foot">

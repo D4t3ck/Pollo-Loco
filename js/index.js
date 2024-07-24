@@ -37,6 +37,10 @@ function doNotClose(event) {
   event.stopPropagation();
 }
 
-// window.onload = function () {
-//   closeModal();
-// };
+function changeText(button) {
+  button.textContent = "¡Vamos!";
+}
+
+function resetText(button) {
+  button.textContent = "¡Start!";
+}

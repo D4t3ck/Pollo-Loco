@@ -16,7 +16,7 @@ main {
     h1 {
       text-align: center;
       font-family: $mainFont;
-      font-size: clamp(2rem, 20vw, 20rem);
+      font-size: clamp(2rem, 30vw, 20rem);
       letter-spacing: 0.5rem;
       text-shadow: 1px 1px 6px var(--sand);
       -webkit-text-stroke-width: 1px;
@@ -254,7 +254,7 @@ main {
   main {
     .head {
       .start_btn {
-        width: auto;
+        width: 70%;
         margin: 1em 0;
         padding: 1rem;
       }
