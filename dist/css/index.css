@@ -35,7 +35,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0px;
+  gap: 5rem;
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
@@ -47,7 +47,7 @@ main .head {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0px;
+  gap: 3rem;
 }
 main .head h1 {
   text-align: center;
@@ -101,7 +101,7 @@ main .head .start_btn .bounce:hover {
 }
 main .foot {
   font-family: system-ui, sans-serif;
-  padding-top: 5rem;
+  margin-top: 5rem;
   margin-bottom: 3rem;
 }
 main .foot .btn_container {
@@ -212,12 +212,21 @@ main .modal_content .close:focus {
 }
 
 @media only screen and (max-width: 600px) {
+  main {
+    gap: 0;
+  }
+  main .head {
+    gap: 1rem;
+  }
   main .head .start_btn {
     width: 70%;
     margin: 1em 0;
     padding: 1rem;
   }
-  .foot .btn_container {
+  main .foot {
+    margin-top: 3rem;
+  }
+  main .foot .btn_container {
     flex-direction: column;
   }
 }
