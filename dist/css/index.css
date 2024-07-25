@@ -68,7 +68,7 @@ main .head .start_btn {
   border: 0;
   color: #fff;
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 800;
   font-family: system-ui, sans-serif;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: var(--black);
@@ -82,8 +82,9 @@ main .head .start_btn {
   background-position: 0px;
   background-size: 300%;
 }
-main .head .start_btn:hover {
+main .head .start_btn:is(:hover, :focus) {
   cursor: pointer;
+  scale: 1.05;
   animation: light 1s;
   -webkit-animation: light 1s;
 }
@@ -123,11 +124,12 @@ main .foot .btn_container .privacy_policy_btn {
   border-radius: 5px;
   box-shadow: -1px 1px 5px 0px #000;
 }
-main .foot .btn_container .story_btn:hover,
-main .foot .btn_container .imprint_btn:hover,
-main .foot .btn_container .privacy_policy_btn:hover {
+main .foot .btn_container .story_btn:is(:hover, :focus),
+main .foot .btn_container .imprint_btn:is(:hover, :focus),
+main .foot .btn_container .privacy_policy_btn:is(:hover, :focus) {
   cursor: pointer;
-  background-color: rgb(253, 183, 44);
+  background-color: var(--lightYellow);
+  scale: 1.05;
 }
 main .modal {
   display: none;
@@ -137,9 +139,9 @@ main .modal {
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.41);
+  /* background: rgba(0, 0, 0, 0.41);
   backdrop-filter: blur(4.9px);
-  -webkit-backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px); */
 }
 @keyframes slideInFromBottom {
   0% {
